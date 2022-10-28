@@ -1,0 +1,12 @@
+
+
+disabled_rules:
+  - vertical_whitespace
+  - comment_spacing
+  - trailing_whitespace
+
+excluded:
+  - Pods
+
+
+line_length: 150
