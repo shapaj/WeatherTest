@@ -1,0 +1,16 @@
+/* 
+  Localization(en).strings
+  WheterTest
+
+  Created by Ihor on 29.10.2022.
+  
+*/
+
+//WEEK
+"Monday" = "M";
+"Tuesday" = "T";
+"Wednesday" = "W";
+"Thursday" = "R";
+"Friday" = "F";
+"Saturday" = "S";
+"Sunday" = "U";

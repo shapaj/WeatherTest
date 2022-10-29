@@ -23,6 +23,16 @@
 		2A592A53290C7F7D0069B333 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A592A52290C7F7D0069B333 /* BaseViewController.swift */; };
 		2A592A55290C80F30069B333 /* LifeCycleProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A592A54290C80F30069B333 /* LifeCycleProtocol.swift */; };
 		2A592A58290C86170069B333 /* UIViewController+Create.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A592A57290C86170069B333 /* UIViewController+Create.swift */; };
+		2A9AA6B8290D573200898AFE /* ViewUpdateble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9AA6B7290D573200898AFE /* ViewUpdateble.swift */; };
+		2A9AA6BA290D68DC00898AFE /* APIInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2A9AA6B9290D68DC00898AFE /* APIInfo.plist */; };
+		2A9AA6BE290D69C500898AFE /* OWMURLManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9AA6BD290D69C500898AFE /* OWMURLManager.swift */; };
+		2A9AA6C0290D806600898AFE /* OWMDefaultValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9AA6BF290D806600898AFE /* OWMDefaultValues.swift */; };
+		2A9AA6C3290D831800898AFE /* DaysOfWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9AA6C2290D831800898AFE /* DaysOfWeek.swift */; };
+		2A9AA6C6290D841E00898AFE /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9AA6C5290D841E00898AFE /* String+Extensions.swift */; };
+		2A9AA6C8290D848A00898AFE /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9AA6C7290D848A00898AFE /* UIView+Extensions.swift */; };
+		2A9AA6CA290D870700898AFE /* Localization(en).strings in Resources */ = {isa = PBXBuildFile; fileRef = 2A9AA6C9290D870700898AFE /* Localization(en).strings */; };
+		2A9AA6CD290D894100898AFE /* CurrentWeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9AA6CC290D894100898AFE /* CurrentWeatherModel.swift */; };
+		2A9AA6CF290D9D0600898AFE /* DefaultValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9AA6CE290D9D0600898AFE /* DefaultValues.swift */; };
 		BA0AB812814F075C4AAFC287 /* Pods_WheterTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7830719E4CD12E0E8170DF3 /* Pods_WheterTest.framework */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +56,16 @@
 		2A592A52290C7F7D0069B333 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		2A592A54290C80F30069B333 /* LifeCycleProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeCycleProtocol.swift; sourceTree = "<group>"; };
 		2A592A57290C86170069B333 /* UIViewController+Create.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Create.swift"; sourceTree = "<group>"; };
+		2A9AA6B7290D573200898AFE /* ViewUpdateble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewUpdateble.swift; sourceTree = "<group>"; };
+		2A9AA6B9290D68DC00898AFE /* APIInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = APIInfo.plist; sourceTree = "<group>"; };
+		2A9AA6BD290D69C500898AFE /* OWMURLManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OWMURLManager.swift; sourceTree = "<group>"; };
+		2A9AA6BF290D806600898AFE /* OWMDefaultValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OWMDefaultValues.swift; sourceTree = "<group>"; };
+		2A9AA6C2290D831800898AFE /* DaysOfWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysOfWeek.swift; sourceTree = "<group>"; };
+		2A9AA6C5290D841E00898AFE /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		2A9AA6C7290D848A00898AFE /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		2A9AA6C9290D870700898AFE /* Localization(en).strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = "Localization(en).strings"; sourceTree = "<group>"; };
+		2A9AA6CC290D894100898AFE /* CurrentWeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherModel.swift; sourceTree = "<group>"; };
+		2A9AA6CE290D9D0600898AFE /* DefaultValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultValues.swift; sourceTree = "<group>"; };
 		5627C2A3A83CD51FC2DB3FCF /* Pods-WheterTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WheterTest.release.xcconfig"; path = "Target Support Files/Pods-WheterTest/Pods-WheterTest.release.xcconfig"; sourceTree = "<group>"; };
 		D7830719E4CD12E0E8170DF3 /* Pods_WheterTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WheterTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -92,8 +112,10 @@
 		2A1B8ACF290C60690059C3D5 /* WheterTest */ = {
 			isa = PBXGroup;
 			children = (
+				2A9AA6BB290D697300898AFE /* Network */,
+				2A9AA6B6290D56A100898AFE /* Protocols */,
 				2A592A4C290C7EBE0069B333 /* Classes */,
-				2A592A4D290C7ED70069B333 /* Cells */,
+				2A592A4D290C7ED70069B333 /* ReusableViews */,
 				2A592A56290C84BB0069B333 /* Extensions */,
 				2A592A3D290C7B740069B333 /* Modules */,
 				2A1B8AD0290C60690059C3D5 /* AppDelegate.swift */,
@@ -107,9 +129,13 @@
 		2A592A3A290C78F70069B333 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				2A9AA6C1290D82FF00898AFE /* Enums */,
 				2A1B8ADE290C60730059C3D5 /* Info.plist */,
 				2A1B8AD9290C60730059C3D5 /* Assets.xcassets */,
 				2A592A3B290C79D70069B333 /* Colors.xcassets */,
+				2A9AA6B9290D68DC00898AFE /* APIInfo.plist */,
+				2A9AA6C9290D870700898AFE /* Localization(en).strings */,
+				2A9AA6CE290D9D0600898AFE /* DefaultValues.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -144,21 +170,73 @@
 			path = Classes;
 			sourceTree = "<group>";
 		};
-		2A592A4D290C7ED70069B333 /* Cells */ = {
+		2A592A4D290C7ED70069B333 /* ReusableViews */ = {
 			isa = PBXGroup;
 			children = (
-				2A592A4E290C7F540069B333 /* DayViewCell.swift */,
-				2A592A4F290C7F540069B333 /* DayViewCell.xib */,
+				2A9AA6B5290D54C400898AFE /* DayViewCell */,
 			);
-			path = Cells;
+			path = ReusableViews;
 			sourceTree = "<group>";
 		};
 		2A592A56290C84BB0069B333 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				2A592A57290C86170069B333 /* UIViewController+Create.swift */,
+				2A9AA6C5290D841E00898AFE /* String+Extensions.swift */,
+				2A9AA6C7290D848A00898AFE /* UIView+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		2A9AA6B5290D54C400898AFE /* DayViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				2A592A4F290C7F540069B333 /* DayViewCell.xib */,
+				2A592A4E290C7F540069B333 /* DayViewCell.swift */,
+			);
+			path = DayViewCell;
+			sourceTree = "<group>";
+		};
+		2A9AA6B6290D56A100898AFE /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				2A9AA6B7290D573200898AFE /* ViewUpdateble.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		2A9AA6BB290D697300898AFE /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				2A9AA6BC290D698700898AFE /* OWM(OpenWeatherMap) */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		2A9AA6BC290D698700898AFE /* OWM(OpenWeatherMap) */ = {
+			isa = PBXGroup;
+			children = (
+				2A9AA6CB290D891D00898AFE /* Models */,
+				2A9AA6BD290D69C500898AFE /* OWMURLManager.swift */,
+				2A9AA6BF290D806600898AFE /* OWMDefaultValues.swift */,
+			);
+			path = "OWM(OpenWeatherMap)";
+			sourceTree = "<group>";
+		};
+		2A9AA6C1290D82FF00898AFE /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				2A9AA6C2290D831800898AFE /* DaysOfWeek.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		2A9AA6CB290D891D00898AFE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2A9AA6CC290D894100898AFE /* CurrentWeatherModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		34458B392694B8329F3DCF39 /* Frameworks */ = {
@@ -235,6 +313,8 @@
 				2A1B8ADD290C60730059C3D5 /* LaunchScreen.storyboard in Resources */,
 				2A1B8ADA290C60730059C3D5 /* Assets.xcassets in Resources */,
 				2A592A51290C7F540069B333 /* DayViewCell.xib in Resources */,
+				2A9AA6BA290D68DC00898AFE /* APIInfo.plist in Resources */,
+				2A9AA6CA290D870700898AFE /* Localization(en).strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,13 +388,21 @@
 				2A592A45290C7D150069B333 /* HomeView.swift in Sources */,
 				2A592A41290C7CCF0069B333 /* HomeAssembly.swift in Sources */,
 				2A1B8AD1290C60690059C3D5 /* AppDelegate.swift in Sources */,
+				2A9AA6C0290D806600898AFE /* OWMDefaultValues.swift in Sources */,
+				2A9AA6C6290D841E00898AFE /* String+Extensions.swift in Sources */,
+				2A9AA6BE290D69C500898AFE /* OWMURLManager.swift in Sources */,
+				2A9AA6C8290D848A00898AFE /* UIView+Extensions.swift in Sources */,
 				2A592A49290C7DFE0069B333 /* HomePresenterProtocol.swift in Sources */,
 				2A592A4B290C7E290069B333 /* HomeViewProtocol.swift in Sources */,
+				2A9AA6C3290D831800898AFE /* DaysOfWeek.swift in Sources */,
 				2A592A58290C86170069B333 /* UIViewController+Create.swift in Sources */,
+				2A9AA6CD290D894100898AFE /* CurrentWeatherModel.swift in Sources */,
 				2A592A53290C7F7D0069B333 /* BaseViewController.swift in Sources */,
+				2A9AA6B8290D573200898AFE /* ViewUpdateble.swift in Sources */,
 				2A592A50290C7F540069B333 /* DayViewCell.swift in Sources */,
 				2A1B8AD3290C60690059C3D5 /* SceneDelegate.swift in Sources */,
 				2A592A55290C80F30069B333 /* LifeCycleProtocol.swift in Sources */,
+				2A9AA6CF290D9D0600898AFE /* DefaultValues.swift in Sources */,
 				2A592A43290C7CE80069B333 /* HomePresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -337,6 +425,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -398,6 +487,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";

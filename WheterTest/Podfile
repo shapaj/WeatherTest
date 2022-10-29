@@ -9,4 +9,5 @@ target 'WheterTest' do
 
 	pod 'SwiftLint'
 pod 'Swinject'
+pod 'Nuke'
 end

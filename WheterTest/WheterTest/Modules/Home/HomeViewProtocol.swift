@@ -7,6 +7,6 @@
 
 import UIKit
 
-protocol HomeViewProtocol: UIViewController {
+protocol HomeViewProtocol: UIViewController, ViewUpdateble {
     
 }
