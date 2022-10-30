@@ -21,6 +21,7 @@
                 <outlet property="temperatureLabel" destination="EGV-aL-wq0" id="gJg-73-dXb"/>
                 <outlet property="view" destination="iN0-l3-epB" id="HsY-oM-D1W"/>
                 <outlet property="windLabel" destination="oDW-w3-P3B" id="WKx-37-C2B"/>
+                <outletCollection property="partsOfDay" destination="Jav-jd-wUT" collectionClass="NSMutableArray" id="1vp-lr-Se0"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -35,10 +36,65 @@
                             <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mgt-ZM-Ugc" userLabel="ContentView">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="120"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="580" height="120"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BQE-jl-2f9" customClass="PartOfDay" customModule="WheterTest" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="90" height="120"/>
+                                            <color key="backgroundColor" name="Blue"/>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SSf-9V-tLx" customClass="PartOfDay" customModule="WheterTest" customModuleProvider="target">
+                                            <rect key="frame" x="196" y="0.0" width="90" height="120"/>
+                                            <color key="backgroundColor" name="Blue"/>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yMy-bX-C8G" customClass="PartOfDay" customModule="WheterTest" customModuleProvider="target">
+                                            <rect key="frame" x="294" y="0.0" width="90" height="120"/>
+                                            <color key="backgroundColor" name="Blue"/>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RNk-gz-2iO" customClass="PartOfDay" customModule="WheterTest" customModuleProvider="target">
+                                            <rect key="frame" x="392" y="0.0" width="90" height="120"/>
+                                            <color key="backgroundColor" name="Blue"/>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tSv-Wx-aGk" customClass="PartOfDay" customModule="WheterTest" customModuleProvider="target">
+                                            <rect key="frame" x="490" y="0.0" width="90" height="120"/>
+                                            <color key="backgroundColor" name="Blue"/>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jav-jd-wUT" customClass="PartOfDay" customModule="WheterTest" customModuleProvider="target">
+                                            <rect key="frame" x="98" y="0.0" width="90" height="120"/>
+                                            <color key="backgroundColor" name="Blue"/>
+                                        </view>
+                                    </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="600" id="Sz8-m2-gu4"/>
+                                        <constraint firstItem="SSf-9V-tLx" firstAttribute="top" secondItem="Mgt-ZM-Ugc" secondAttribute="top" id="0TN-wz-xlf"/>
+                                        <constraint firstItem="Jav-jd-wUT" firstAttribute="top" secondItem="Mgt-ZM-Ugc" secondAttribute="top" id="2Hv-LM-IrK"/>
+                                        <constraint firstAttribute="bottom" secondItem="yMy-bX-C8G" secondAttribute="bottom" id="3di-Oc-wob"/>
+                                        <constraint firstItem="tSv-Wx-aGk" firstAttribute="leading" secondItem="RNk-gz-2iO" secondAttribute="trailing" constant="8" symbolic="YES" id="5Xq-DV-ySa"/>
+                                        <constraint firstItem="Jav-jd-wUT" firstAttribute="leading" secondItem="BQE-jl-2f9" secondAttribute="trailing" constant="8" symbolic="YES" id="5rD-7Q-8u1"/>
+                                        <constraint firstAttribute="bottom" secondItem="BQE-jl-2f9" secondAttribute="bottom" id="5tL-dD-Cz2"/>
+                                        <constraint firstItem="BQE-jl-2f9" firstAttribute="leading" secondItem="Mgt-ZM-Ugc" secondAttribute="leading" id="AOG-mD-Kjr"/>
+                                        <constraint firstAttribute="bottom" secondItem="tSv-Wx-aGk" secondAttribute="bottom" id="CC5-GF-mkB"/>
+                                        <constraint firstAttribute="bottom" secondItem="SSf-9V-tLx" secondAttribute="bottom" id="EBV-fj-hsZ"/>
+                                        <constraint firstItem="BQE-jl-2f9" firstAttribute="top" secondItem="Mgt-ZM-Ugc" secondAttribute="top" id="ESc-1K-cYS"/>
+                                        <constraint firstItem="SSf-9V-tLx" firstAttribute="leading" secondItem="Mgt-ZM-Ugc" secondAttribute="leading" constant="196" id="JY4-6s-pyg"/>
+                                        <constraint firstItem="RNk-gz-2iO" firstAttribute="leading" secondItem="Mgt-ZM-Ugc" secondAttribute="leading" constant="392" id="ML4-ty-Zxg"/>
+                                        <constraint firstItem="SSf-9V-tLx" firstAttribute="leading" secondItem="Jav-jd-wUT" secondAttribute="trailing" constant="8" symbolic="YES" id="PR1-x5-N8T"/>
+                                        <constraint firstAttribute="width" constant="580" id="Sz8-m2-gu4"/>
+                                        <constraint firstItem="SSf-9V-tLx" firstAttribute="leading" secondItem="Jav-jd-wUT" secondAttribute="trailing" constant="8" symbolic="YES" id="YbF-UM-ZLy"/>
+                                        <constraint firstItem="RNk-gz-2iO" firstAttribute="leading" secondItem="yMy-bX-C8G" secondAttribute="trailing" constant="8" symbolic="YES" id="bB0-w4-AqV"/>
+                                        <constraint firstItem="RNk-gz-2iO" firstAttribute="top" secondItem="Mgt-ZM-Ugc" secondAttribute="top" id="e37-YN-ew8"/>
+                                        <constraint firstItem="RNk-gz-2iO" firstAttribute="leading" secondItem="yMy-bX-C8G" secondAttribute="trailing" constant="8" symbolic="YES" id="hJf-2x-SQZ"/>
+                                        <constraint firstAttribute="bottom" secondItem="Jav-jd-wUT" secondAttribute="bottom" id="hz8-1c-N7Y"/>
+                                        <constraint firstItem="tSv-Wx-aGk" firstAttribute="leading" secondItem="Mgt-ZM-Ugc" secondAttribute="leading" constant="490" id="jWj-A4-bV5"/>
+                                        <constraint firstItem="tSv-Wx-aGk" firstAttribute="top" secondItem="Mgt-ZM-Ugc" secondAttribute="top" id="m2Z-rt-e4Q"/>
+                                        <constraint firstAttribute="bottom" secondItem="RNk-gz-2iO" secondAttribute="bottom" id="mal-gl-iZ5"/>
+                                        <constraint firstItem="yMy-bX-C8G" firstAttribute="leading" secondItem="Mgt-ZM-Ugc" secondAttribute="leading" constant="294" id="na5-AV-VMG"/>
+                                        <constraint firstItem="yMy-bX-C8G" firstAttribute="leading" secondItem="SSf-9V-tLx" secondAttribute="trailing" constant="8" symbolic="YES" id="nlK-Cj-XUR"/>
+                                        <constraint firstItem="tSv-Wx-aGk" firstAttribute="leading" secondItem="RNk-gz-2iO" secondAttribute="trailing" constant="8" symbolic="YES" id="qnU-eI-uaN"/>
+                                        <constraint firstItem="yMy-bX-C8G" firstAttribute="top" secondItem="Mgt-ZM-Ugc" secondAttribute="top" id="ryk-Ou-TMy"/>
+                                        <constraint firstItem="Jav-jd-wUT" firstAttribute="leading" secondItem="Mgt-ZM-Ugc" secondAttribute="leading" constant="98" id="srQ-oL-CsZ"/>
+                                        <constraint firstItem="Jav-jd-wUT" firstAttribute="leading" secondItem="BQE-jl-2f9" secondAttribute="trailing" constant="8" symbolic="YES" id="vhl-ko-reD"/>
+                                        <constraint firstItem="yMy-bX-C8G" firstAttribute="leading" secondItem="SSf-9V-tLx" secondAttribute="trailing" constant="8" symbolic="YES" id="ynX-Fe-LTj"/>
+                                        <constraint firstAttribute="trailing" secondItem="tSv-Wx-aGk" secondAttribute="trailing" id="zbE-lb-FQl"/>
                                     </constraints>
                                 </view>
                             </subviews>
@@ -226,6 +282,9 @@
         <image name="NoImage" width="32" height="32"/>
         <image name="Temperature" width="250.18899536132812" height="250.18899536132812"/>
         <image name="Wind" width="365.44699096679688" height="365.44699096679688"/>
+        <namedColor name="Blue">
+            <color red="0.3529999852180481" green="0.62400001287460327" blue="0.94099998474121094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="DarkBlue">
             <color red="0.28999999165534973" green="0.56499999761581421" blue="0.88599997758865356" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

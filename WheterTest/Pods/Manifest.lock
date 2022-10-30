@@ -1,20 +1,24 @@
 PODS:
+  - Nuke (10.7.1)
   - SwiftLint (0.43.1)
   - Swinject (2.8.2)
 
 DEPENDENCIES:
+  - Nuke
   - SwiftLint
   - Swinject
 
 SPEC REPOS:
   trunk:
+    - Nuke
     - SwiftLint
     - Swinject
 
 SPEC CHECKSUMS:
+  Nuke: 279f17a599fd1c83cf51de5e0e1f2db143a287b0
   SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
   Swinject: b4a11b31992e8668308dc594ba1cb9b3164a37ab
 
-PODFILE CHECKSUM: 8b56a8b5ed48c93fa0a6e170fa0141e66b52de8f
+PODFILE CHECKSUM: 0bd37834712b6e91d978cf020d529d8b22f502c2
 
 COCOAPODS: 1.11.3

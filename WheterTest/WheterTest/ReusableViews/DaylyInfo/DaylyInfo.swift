@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Nuke
 
 protocol DaylyInfoDelegate: AnyObject {
     func updateForCurrentLocation()
@@ -25,8 +26,9 @@ class DaylyInfo: UIView, Loadable, ViewUpdateble {
     @IBOutlet private weak var temperatureLabel: UILabel!
     @IBOutlet private weak var humidityLabel: UILabel!
     @IBOutlet private weak var windLabel: UILabel!
-    @IBOutlet private weak var partsOfDayStackView: UIStackView!
-    
+    @IBOutlet private weak var partsOfDayStackView: UIStackView!    
+    @IBOutlet var partsOfDay: [PartOfDay]!
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupElements()
@@ -37,15 +39,6 @@ class DaylyInfo: UIView, Loadable, ViewUpdateble {
         setupElements()
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-    }
-    
-    override func draw(_ rect: CGRect) {
-        //setupElements()
-    }
-    
     private func setupElements() {
         
         loadView()
@@ -54,6 +47,14 @@ class DaylyInfo: UIView, Loadable, ViewUpdateble {
         
         cityImage.addGestureRecognizer(UIGestureRecognizer(target: self, action: #selector(tapToPickLocation(_:))))
         cityName.addGestureRecognizer(UIGestureRecognizer(target: self, action: #selector(tapToPickLocation(_:))))
+    }
+    
+    private func updatePartsOfDay(_ partOfDayModels: [PartsOfDayWeather]) {
+        guard self.partsOfDay.count == partOfDayModels.count else { return }
+        self.partsOfDay.forEach { partOfDay in
+            partOfDay.setupView(partOfDay.index(ofAccessibilityElement: partOfDay))
+        }
+        
     }
     
     @IBAction func getCurrentLocation(_ sender: UIButton) {
@@ -67,10 +68,30 @@ class DaylyInfo: UIView, Loadable, ViewUpdateble {
     func setupView(_ viewModel: Any) {
         if let viewModel = viewModel as? DaylyInfoViewModel {
             
+            location = viewModel.location
+            cityName.text = viewModel.cityName
+            datePresentation.text = viewModel.datePresentation
+            temperatureLabel.text = viewModel.temperature
+            humidityLabel.text = viewModel.humidity
+            windLabel.text = viewModel.wind
+            
+            loadImage(with: viewModel.weatherIconURL, into: currentWeatherIcon)
+            
+        } else if let viewModel = viewModel as? [PartsOfDayWeather] {
+            updatePartsOfDay(viewModel)
         }
     }
 }
 
 struct DaylyInfoViewModel {
+    let location: Coordinates
+    let cityName: String
+    let datePresentation: String
+    let weatherIconURL: URL?
+    let temperature: String
+    let humidity: String
+    let wind: String
+    let partsOfDayWeather: [PartsOfDayWeather]
     
+    // TODO: INIT
 }
