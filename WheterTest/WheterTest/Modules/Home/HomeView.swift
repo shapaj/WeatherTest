@@ -11,6 +11,7 @@ final class HomeView: BaseViewController, HomeViewProtocol, UITableViewDelegate,
     
     //private static let numberOfSections = 1
     
+    @IBOutlet weak var daylyInfoView: DaylyInfo!
     @IBOutlet private weak var tableView: UITableView!
     
     var presenter: HomePresenterProtocol!
@@ -20,6 +21,8 @@ final class HomeView: BaseViewController, HomeViewProtocol, UITableViewDelegate,
         super.viewDidLoad()
         
         setupViewController()
+        
+        presenter.viewDidLoad?()
         view.backgroundColor = .yellow
     }
     

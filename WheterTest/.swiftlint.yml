@@ -5,6 +5,8 @@ disabled_rules:
   - vertical_whitespace
   - comment_spacing
   - trailing_whitespace
+  - colon
+  - weak_delegate
 
 excluded:
   - Pods

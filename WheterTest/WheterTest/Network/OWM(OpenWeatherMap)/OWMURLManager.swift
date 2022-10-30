@@ -8,6 +8,7 @@
 import Foundation
 
 enum OWMURLManager {
-    case weather
+    case weather(coordinates: Coordinates)
+    case forecast(coordinates: Coordinates)
     
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="landscape" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
@@ -15,11 +15,11 @@
             <objects>
                 <viewController id="Y6W-OH-hqX" customClass="HomeView" customModule="WheterTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="7p7-n3-MKg">
-                                <rect key="frame" x="0.0" y="284" width="320" height="284"/>
+                                <rect key="frame" x="448" y="0.0" width="404" height="414"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="420" id="gAN-MZ-d1J"/>
@@ -29,8 +29,8 @@
                                     <outlet property="delegate" destination="Y6W-OH-hqX" id="FGL-wC-fVp"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zav-Cc-dni">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="284"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zav-Cc-dni" customClass="DaylyInfo" customModule="WheterTest" customModuleProvider="target">
+                                <rect key="frame" x="44" y="0.0" width="404" height="414"/>
                                 <color key="backgroundColor" name="DarkBlue"/>
                             </view>
                         </subviews>
@@ -41,7 +41,7 @@
                             <constraint firstItem="7p7-n3-MKg" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="centerY" priority="999" id="2U8-JR-O7R">
                                 <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                             </constraint>
-                            <constraint firstItem="zav-Cc-dni" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="4sI-cD-8eD"/>
+                            <constraint firstItem="zav-Cc-dni" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" constant="21" id="4sI-cD-8eD"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="7p7-n3-MKg" secondAttribute="trailing" id="AbY-Bp-0c4"/>
                             <constraint firstItem="7p7-n3-MKg" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="BNj-Cp-otU"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="7p7-n3-MKg" secondAttribute="bottom" id="Kwy-o8-KQj">
@@ -59,12 +59,12 @@
                             <mask key="constraints">
                                 <exclude reference="Kwy-o8-KQj"/>
                                 <exclude reference="SjV-7s-Sv4"/>
-                                <exclude reference="cCq-UG-52Z"/>
                                 <exclude reference="wOK-s8-akb"/>
                                 <exclude reference="4sI-cD-8eD"/>
                                 <exclude reference="1yL-UH-61C"/>
                                 <exclude reference="2U8-JR-O7R"/>
                                 <exclude reference="BNj-Cp-otU"/>
+                                <exclude reference="cCq-UG-52Z"/>
                                 <exclude reference="qsP-Bi-EOr"/>
                             </mask>
                         </variation>
@@ -80,14 +80,15 @@
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="constraints">
                                 <include reference="Kwy-o8-KQj"/>
-                                <include reference="cCq-UG-52Z"/>
                                 <include reference="wOK-s8-akb"/>
                                 <include reference="2U8-JR-O7R"/>
+                                <include reference="cCq-UG-52Z"/>
                                 <include reference="qsP-Bi-EOr"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="daylyInfoView" destination="zav-Cc-dni" id="ntt-ru-IQv"/>
                         <outlet property="tableView" destination="7p7-n3-MKg" id="PCi-ha-jfo"/>
                     </connections>
                 </viewController>

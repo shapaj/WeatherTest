@@ -7,7 +7,7 @@
 
 import Foundation
 
-@objc protocol LifeCycleProtocol {
+@objc protocol LifeCycleProtocol where Self: AnyObject {
     @objc optional func viewDidLoad()
     @objc optional func viewWillAppear()
     @objc optional func viewDidAppear()

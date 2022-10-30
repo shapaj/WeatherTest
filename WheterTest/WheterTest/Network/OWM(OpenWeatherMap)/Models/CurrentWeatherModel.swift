@@ -23,6 +23,7 @@ struct WeatherInfo: Decodable {
     let humidity: Int // vlazhnost
     let sea_level: Double // hPa
     let grnd_level: Double // hPa
+    let temp_kf: Double?
 }
 
 struct Coordinates: Decodable {
@@ -34,6 +35,18 @@ struct WindModel: Decodable {
     let speed: Double
     let deg: Int
     let gust: Double
+}
+
+struct Clouds: Decodable {
+    let all: Int
+}
+
+struct Sys: Decodable {
+    let type: Int //": 2,
+    let id: Int//": 2004688,
+    let country: String//": "IT",
+    let sunrise: Int//": 1667022522,
+    let sunset: Int//": 1667059838
 }
 
 struct CurrentWeatherModel: Decodable {
@@ -50,16 +63,4 @@ struct CurrentWeatherModel: Decodable {
     let id: Int // City ID expl:3163858,
     let name: String // City name expl:"Zocca",
     let cod: Int // request status 200
-    
-    struct Sys: Decodable {
-        let type: Int //": 2,
-        let id: Int//": 2004688,
-        let country: String//": "IT",
-        let sunrise: Int//": 1667022522,
-        let sunset: Int//": 1667059838
-    }
-
-    struct Clouds: Decodable {
-        let all: Int
-    }
 }

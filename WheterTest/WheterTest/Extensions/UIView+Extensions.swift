@@ -12,3 +12,15 @@ extension UIView {
         return String(describing: Self.self)
     }
 }
+
+protocol Loadable: UIView {
+    var view: UIView! { get }
+}
+
+extension Loadable {
+    func loadView() {
+    Bundle.main.loadNibNamed(String(describing: type(of: self)), owner: self)
+        view.self.frame = bounds
+            addSubview(view)
+}
+}
