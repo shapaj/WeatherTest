@@ -18,3 +18,9 @@ extension UIViewController {
         return viewController
     }
 }
+
+extension UIViewController {
+    func presentAlert(message: String, header: String? = nil, heandler: (() -> Void)? = nil) {
+        
+    }
+}

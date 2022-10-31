@@ -12,16 +12,21 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DaylyInfo" customModule="WheterTest" customModuleProvider="target">
             <connections>
-                <outlet property="cityImage" destination="zbk-qv-NBs" id="ZAU-HO-dNN"/>
-                <outlet property="cityName" destination="asn-Gm-IbI" id="hw0-8b-5eb"/>
-                <outlet property="currentWeatherIcon" destination="6Bd-CZ-VL5" id="qWR-zr-ajW"/>
-                <outlet property="datePresentation" destination="aa7-ZF-NTE" id="UIp-9k-aDH"/>
-                <outlet property="humidityLabel" destination="XBV-Mn-oQg" id="btq-JY-Bc6"/>
-                <outlet property="partsOfDayStackView" destination="hWP-hZ-uMr" id="C0Z-jM-qoM"/>
-                <outlet property="temperatureLabel" destination="EGV-aL-wq0" id="gJg-73-dXb"/>
-                <outlet property="view" destination="iN0-l3-epB" id="HsY-oM-D1W"/>
-                <outlet property="windLabel" destination="oDW-w3-P3B" id="WKx-37-C2B"/>
-                <outletCollection property="partsOfDay" destination="Jav-jd-wUT" collectionClass="NSMutableArray" id="1vp-lr-Se0"/>
+                <outlet property="cityImage" destination="zbk-qv-NBs" id="1f1-Eq-cpW"/>
+                <outlet property="cityName" destination="asn-Gm-IbI" id="a2X-aP-rfv"/>
+                <outlet property="currentWeatherIcon" destination="6Bd-CZ-VL5" id="A2i-zg-zDh"/>
+                <outlet property="datePresentation" destination="aa7-ZF-NTE" id="t6i-lW-5we"/>
+                <outlet property="humidityLabel" destination="XBV-Mn-oQg" id="kfu-ja-yIN"/>
+                <outlet property="partsOfDayStackView" destination="hWP-hZ-uMr" id="lgT-Uv-F5J"/>
+                <outlet property="temperatureLabel" destination="EGV-aL-wq0" id="VhK-f3-TRB"/>
+                <outlet property="view" destination="iN0-l3-epB" id="Dci-oz-ZBM"/>
+                <outlet property="windLabel" destination="oDW-w3-P3B" id="14D-aC-eJX"/>
+                <outletCollection property="partsOfDay" destination="yMy-bX-C8G" collectionClass="NSMutableArray" id="pvi-bc-DFi"/>
+                <outletCollection property="partsOfDay" destination="SSf-9V-tLx" collectionClass="NSMutableArray" id="cHi-pI-r8x"/>
+                <outletCollection property="partsOfDay" destination="BQE-jl-2f9" collectionClass="NSMutableArray" id="td5-E7-ycJ"/>
+                <outletCollection property="partsOfDay" destination="RNk-gz-2iO" collectionClass="NSMutableArray" id="BAh-Cx-ybY"/>
+                <outletCollection property="partsOfDay" destination="tSv-Wx-aGk" collectionClass="NSMutableArray" id="yv7-Nr-WXr"/>
+                <outletCollection property="partsOfDay" destination="Jav-jd-wUT" collectionClass="NSMutableArray" id="dGB-KB-ZAB"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -145,10 +150,10 @@
                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                             </state>
                             <connections>
-                                <action selector="getCurrentLocation:" destination="-1" eventType="touchUpInside" id="wX1-Tc-hnB"/>
+                                <action selector="getCurrentLocation:" destination="-1" eventType="touchUpInside" id="uJb-BC-cEb"/>
                             </connections>
                         </button>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GeoLogo" translatesAutoresizingMaskIntoConstraints="NO" id="zbk-qv-NBs">
+                        <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GeoLogo" translatesAutoresizingMaskIntoConstraints="NO" id="zbk-qv-NBs">
                             <rect key="frame" x="10" y="10" width="30" height="30"/>
                             <color key="tintColor" name="White"/>
                             <constraints>
@@ -156,7 +161,7 @@
                                 <constraint firstAttribute="height" constant="30" id="V9w-j3-LVj"/>
                             </constraints>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="asn-Gm-IbI">
+                        <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="asn-Gm-IbI">
                             <rect key="frame" x="50" y="0.0" width="306" height="50"/>
                             <color key="tintColor" name="White"/>
                             <constraints>

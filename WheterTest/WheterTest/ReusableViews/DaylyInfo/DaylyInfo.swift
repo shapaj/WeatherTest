@@ -9,8 +9,8 @@ import UIKit
 import Nuke
 
 protocol DaylyInfoDelegate: AnyObject {
-    func updateForCurrentLocation()
     func tapToPickLocation()
+    func updateWithLocation(_ location: Coordinates?)
 }
 
 class DaylyInfo: UIView, Loadable, ViewUpdateble {
@@ -28,7 +28,7 @@ class DaylyInfo: UIView, Loadable, ViewUpdateble {
     @IBOutlet private weak var windLabel: UILabel!
     @IBOutlet private weak var partsOfDayStackView: UIStackView!    
     @IBOutlet var partsOfDay: [PartOfDay]!
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupElements()
@@ -44,9 +44,9 @@ class DaylyInfo: UIView, Loadable, ViewUpdateble {
         loadView()
         view.autoresizingMask = [.flexibleTopMargin, .flexibleBottomMargin, .flexibleHeight, .flexibleWidth]
         view.translatesAutoresizingMaskIntoConstraints = true
-        
-        cityImage.addGestureRecognizer(UIGestureRecognizer(target: self, action: #selector(tapToPickLocation(_:))))
-        cityName.addGestureRecognizer(UIGestureRecognizer(target: self, action: #selector(tapToPickLocation(_:))))
+
+        cityImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapToPickLocation)))
+        cityName.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapToPickLocation)))
     }
     
     private func updatePartsOfDay(_ partOfDayModels: [PartsOfDayWeather]) {
@@ -54,15 +54,23 @@ class DaylyInfo: UIView, Loadable, ViewUpdateble {
         self.partsOfDay.forEach { partOfDay in
             partOfDay.setupView(partOfDay.index(ofAccessibilityElement: partOfDay))
         }
-        
+    }
+    
+    override func draw(_ rect: CGRect) {
+        delegate?.updateWithLocation(location)
     }
     
     @IBAction func getCurrentLocation(_ sender: UIButton) {
-        delegate?.updateForCurrentLocation()
+        delegate?.updateWithLocation(nil)
     }
   
     @objc func tapToPickLocation(_ sender: UITapGestureRecognizer) {
         delegate?.tapToPickLocation()
+    }
+    
+    func didPickLocation(location: Coordinates) {
+        self.location = location
+        delegate?.updateWithLocation(location)
     }
     
     func setupView(_ viewModel: Any) {

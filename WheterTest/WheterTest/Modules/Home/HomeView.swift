@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 final class HomeView: BaseViewController, HomeViewProtocol, UITableViewDelegate, UITableViewDataSource {
     
@@ -19,14 +20,15 @@ final class HomeView: BaseViewController, HomeViewProtocol, UITableViewDelegate,
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupViewController()
-        
         presenter.viewDidLoad?()
         view.backgroundColor = .yellow
+//
+//        CLLocationManager().requestWhenInUseAuthorization()
     }
     
     private func setupViewController() {
+        daylyInfoView.delegate = presenter
         setupTableView()
     }
     
@@ -38,6 +40,12 @@ final class HomeView: BaseViewController, HomeViewProtocol, UITableViewDelegate,
         if let viewModel = viewModel as? [DayViewCellViewModel] {
             tableViewModel = viewModel
             tableView.reloadData()
+        } else if let location = viewModel as? Coordinates {
+            daylyInfoView.didPickLocation(location: location)
+        } else if let viewModel = viewModel as? DaylyInfoViewModel {
+            daylyInfoView.setupView(viewModel)
+        } else {
+            fatalError("uninspectable type \(viewModel.self)")
         }
     }
     
@@ -57,9 +65,8 @@ final class HomeView: BaseViewController, HomeViewProtocol, UITableViewDelegate,
             assertionFailure("oups... ckrash")
             return UITableViewCell()
         }
-        
         cell.setupView(tableViewModel[indexPath.row])
-        
+
         return cell
     }
 }

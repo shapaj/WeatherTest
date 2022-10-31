@@ -29,6 +29,10 @@ struct WeatherInfo: Decodable {
 struct Coordinates: Decodable {
     var lon: Double
     var lat: Double
+    
+    static func mock() -> Coordinates {
+        return Coordinates(lon: 10.99, lat: 44.34)
+    }
 }
 
 struct WindModel: Decodable {

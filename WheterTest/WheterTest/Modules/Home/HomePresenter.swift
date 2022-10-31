@@ -11,25 +11,86 @@ import Swinject
 final class HomePresenter: HomePresenterProtocol {
     
     private var view: HomeViewProtocol?
+    
     var networkService: NetworkService?
+    var locationService: LocationService?
+    
     private var currentWeatherModel: CurrentWeatherModel?
+    private var weeklyWeatherModel: WeeklyWeatherModel?
     
     init(view: HomeViewProtocol, container: Container) {
         self.view = view
         self.networkService = container.resolve(NetworkService.self)
+        self.locationService = container.resolve(LocationService.self)
     }
     
-    func viewDidLoad() {
-        getCurrentWeather()
-        getWeeklyFircast()
+    // MARK: view life cycle protocol methods
+    
+    func viewDidLoad() {}
+    
+    // MARK: private methods
+    
+    private func updateLocation() {
+        locationService?.getCurrentLocation { [view] result in
+            DispatchQueue.main.async {
+                switch result {
+                    
+                case .success(let coordinates):
+                    view?.setupView(coordinates)
+                case .failure(let alert):
+                    view?.present(alert, animated: true)//, completion: <#T##(() -> Void)?##(() -> Void)?##() -> Void#>)
+                    
+                }
+//                guard let coordinates = coordinates else {
+//                    view?.presentAlert(message: "didn't find current location")
+//                    return
+//                }
+//                view?.setupView(coordinates)
+            }
+        }
     }
     
-    private func getCurrentWeather() {
-        // TODO: NetworkService.getCurrentWeather()
-        
+    private func getCurrentWeather(_ location: Coordinates) {
+        networkService?.getWeather(coordinates: location) { [weak self] result in
+            switch result {
+            case .success(let weather):
+                self?.currentWeatherModel = weather
+            case .failure(let error):
+                self?.view?.presentAlert(message: error.localizedDescription)
+            }
+        }
     }
     
-    private func getWeeklyFircast() {
-        // TODO: getWeeklyFircast.getCurrentWeather()
+    private func getWeeklyForcast(_ location: Coordinates) {
+        networkService?.getForecast(coordinates: location) { [weak self] result in
+            switch result {
+                
+            case .success(let weeklyWeather):
+                self?.weeklyWeatherModel = weeklyWeather
+            case .failure(let error):
+                self?.view?.presentAlert(message: error.localizedDescription)
+            }
+        }
+    }
+    
+    private func updateWeather(_ location: Coordinates) {
+        getCurrentWeather(location)
+        getWeeklyForcast(location)
+    }
+    
+    // MARK: dayly view delegate
+    
+    func tapToPickLocation() {
+        print(1)
+        // TODO ShowLocationPiker
+        // is not correct updateLocation()
+    }
+    
+    func updateWithLocation(_ location: Coordinates?) {
+        guard let location = location else {
+            updateLocation()
+            return
+        }
+        updateWeather(location)
     }
 }
