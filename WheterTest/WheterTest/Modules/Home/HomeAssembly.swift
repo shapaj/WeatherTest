@@ -6,13 +6,14 @@
 //
 
 import Foundation
+import Swinject
 
 struct HomeAssembly {
     
-    static func createModule() -> HomeView {
+    static func createModule(container: Container) -> HomeView {
         let viewController = HomeView.createVC()
         
-        let presenter: HomePresenterProtocol = HomePresenter(view: viewController)
+        let presenter: HomePresenterProtocol = HomePresenter(view: viewController, container: container)
         
         viewController.presenter = presenter
         

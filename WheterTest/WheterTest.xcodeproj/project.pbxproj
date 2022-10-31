@@ -40,6 +40,10 @@
 		2A9AA6DA290E87F200898AFE /* DaylyInfo.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A9AA6D9290E87F200898AFE /* DaylyInfo.xib */; };
 		2A9AA6DD290EFAC700898AFE /* PartOfDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9AA6DC290EFAC700898AFE /* PartOfDay.swift */; };
 		2A9AA6DF290EFB1800898AFE /* PartOfDay.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A9AA6DE290EFB1800898AFE /* PartOfDay.xib */; };
+		2A9AA6E1290F258000898AFE /* URLManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9AA6E0290F258000898AFE /* URLManagerProtocol.swift */; };
+		2A9AA6E3291015FB00898AFE /* DependancyAssemblay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9AA6E2291015FB00898AFE /* DependancyAssemblay.swift */; };
+		2A9AA6E52910176800898AFE /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9AA6E42910176800898AFE /* DateManager.swift */; };
+		2A9AA6E72910179A00898AFE /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9AA6E62910179A00898AFE /* LocationManager.swift */; };
 		BA0AB812814F075C4AAFC287 /* Pods_WheterTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7830719E4CD12E0E8170DF3 /* Pods_WheterTest.framework */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +84,10 @@
 		2A9AA6D9290E87F200898AFE /* DaylyInfo.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DaylyInfo.xib; sourceTree = "<group>"; };
 		2A9AA6DC290EFAC700898AFE /* PartOfDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartOfDay.swift; sourceTree = "<group>"; };
 		2A9AA6DE290EFB1800898AFE /* PartOfDay.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PartOfDay.xib; sourceTree = "<group>"; };
+		2A9AA6E0290F258000898AFE /* URLManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLManagerProtocol.swift; sourceTree = "<group>"; };
+		2A9AA6E2291015FB00898AFE /* DependancyAssemblay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependancyAssemblay.swift; sourceTree = "<group>"; };
+		2A9AA6E42910176800898AFE /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
+		2A9AA6E62910179A00898AFE /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		5627C2A3A83CD51FC2DB3FCF /* Pods-WheterTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WheterTest.release.xcconfig"; path = "Target Support Files/Pods-WheterTest/Pods-WheterTest.release.xcconfig"; sourceTree = "<group>"; };
 		D7830719E4CD12E0E8170DF3 /* Pods_WheterTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WheterTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -132,9 +140,6 @@
 				2A592A4D290C7ED70069B333 /* ReusableViews */,
 				2A592A56290C84BB0069B333 /* Extensions */,
 				2A592A3D290C7B740069B333 /* Modules */,
-				2A1B8AD0290C60690059C3D5 /* AppDelegate.swift */,
-				2A1B8AD2290C60690059C3D5 /* SceneDelegate.swift */,
-				2A1B8ADB290C60730059C3D5 /* LaunchScreen.storyboard */,
 				2A592A3A290C78F70069B333 /* Sources */,
 			);
 			path = WheterTest;
@@ -143,6 +148,7 @@
 		2A592A3A290C78F70069B333 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				2A1B8ADB290C60730059C3D5 /* LaunchScreen.storyboard */,
 				2A9AA6C1290D82FF00898AFE /* Enums */,
 				2A1B8ADE290C60730059C3D5 /* Info.plist */,
 				2A1B8AD9290C60730059C3D5 /* Assets.xcassets */,
@@ -178,8 +184,14 @@
 		2A592A4C290C7EBE0069B333 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				2A1B8AD0290C60690059C3D5 /* AppDelegate.swift */,
+				2A1B8AD2290C60690059C3D5 /* SceneDelegate.swift */,
+				2A9AA6D0290DBB1C00898AFE /* NetworkManager.swift */,
 				2A592A52290C7F7D0069B333 /* BaseViewController.swift */,
 				2A592A54290C80F30069B333 /* LifeCycleProtocol.swift */,
+				2A9AA6E2291015FB00898AFE /* DependancyAssemblay.swift */,
+				2A9AA6E42910176800898AFE /* DateManager.swift */,
+				2A9AA6E62910179A00898AFE /* LocationManager.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -217,6 +229,7 @@
 			isa = PBXGroup;
 			children = (
 				2A9AA6B7290D573200898AFE /* ViewUpdateble.swift */,
+				2A9AA6E0290F258000898AFE /* URLManagerProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -225,8 +238,6 @@
 			isa = PBXGroup;
 			children = (
 				2A9AA6BC290D698700898AFE /* OWM(OpenWeatherMap) */,
-				2A9AA6D0290DBB1C00898AFE /* NetworkManager.swift */,
-				2A9AA6D2290DBB7600898AFE /* OWMNetworkService.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -237,6 +248,7 @@
 				2A9AA6CB290D891D00898AFE /* Models */,
 				2A9AA6BD290D69C500898AFE /* OWMURLManager.swift */,
 				2A9AA6BF290D806600898AFE /* OWMDefaultValues.swift */,
+				2A9AA6D2290DBB7600898AFE /* OWMNetworkService.swift */,
 			);
 			path = "OWM(OpenWeatherMap)";
 			sourceTree = "<group>";
@@ -430,6 +442,7 @@
 				2A1B8AD1290C60690059C3D5 /* AppDelegate.swift in Sources */,
 				2A9AA6C0290D806600898AFE /* OWMDefaultValues.swift in Sources */,
 				2A9AA6D5290E7C8C00898AFE /* WeeklyWeatherModel.swift in Sources */,
+				2A9AA6E1290F258000898AFE /* URLManagerProtocol.swift in Sources */,
 				2A9AA6D8290E87DC00898AFE /* DaylyInfo.swift in Sources */,
 				2A9AA6C6290D841E00898AFE /* String+Extensions.swift in Sources */,
 				2A9AA6BE290D69C500898AFE /* OWMURLManager.swift in Sources */,
@@ -437,6 +450,7 @@
 				2A592A49290C7DFE0069B333 /* HomePresenterProtocol.swift in Sources */,
 				2A592A4B290C7E290069B333 /* HomeViewProtocol.swift in Sources */,
 				2A9AA6DD290EFAC700898AFE /* PartOfDay.swift in Sources */,
+				2A9AA6E3291015FB00898AFE /* DependancyAssemblay.swift in Sources */,
 				2A9AA6C3290D831800898AFE /* DaysOfWeek.swift in Sources */,
 				2A592A58290C86170069B333 /* UIViewController+Create.swift in Sources */,
 				2A9AA6CD290D894100898AFE /* CurrentWeatherModel.swift in Sources */,
@@ -446,7 +460,9 @@
 				2A592A50290C7F540069B333 /* DayViewCell.swift in Sources */,
 				2A1B8AD3290C60690059C3D5 /* SceneDelegate.swift in Sources */,
 				2A592A55290C80F30069B333 /* LifeCycleProtocol.swift in Sources */,
+				2A9AA6E72910179A00898AFE /* LocationManager.swift in Sources */,
 				2A9AA6CF290D9D0600898AFE /* DefaultValues.swift in Sources */,
+				2A9AA6E52910176800898AFE /* DateManager.swift in Sources */,
 				2A592A43290C7CE80069B333 /* HomePresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

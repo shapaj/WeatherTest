@@ -6,16 +6,17 @@
 //
 
 import Foundation
+import Swinject
 
 final class HomePresenter: HomePresenterProtocol {
     
     private var view: HomeViewProtocol?
-    var networkService: NetworkService = OWMNetworkService()
+    var networkService: NetworkService?
     private var currentWeatherModel: CurrentWeatherModel?
-//    private var weeklyWeatherModel: WeeklyWeatherModel?
     
-    init(view: HomeViewProtocol) {
+    init(view: HomeViewProtocol, container: Container) {
         self.view = view
+        self.networkService = container.resolve(NetworkService.self)
     }
     
     func viewDidLoad() {
