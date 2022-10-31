@@ -23,8 +23,6 @@ final class HomeView: BaseViewController, HomeViewProtocol, UITableViewDelegate,
         setupViewController()
         presenter.viewDidLoad?()
         view.backgroundColor = .yellow
-//
-//        CLLocationManager().requestWhenInUseAuthorization()
     }
     
     private func setupViewController() {

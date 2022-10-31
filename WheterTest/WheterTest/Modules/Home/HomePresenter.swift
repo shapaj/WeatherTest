@@ -34,18 +34,11 @@ final class HomePresenter: HomePresenterProtocol {
         locationService?.getCurrentLocation { [view] result in
             DispatchQueue.main.async {
                 switch result {
-                    
                 case .success(let coordinates):
                     view?.setupView(coordinates)
                 case .failure(let alert):
-                    view?.present(alert, animated: true)//, completion: <#T##(() -> Void)?##(() -> Void)?##() -> Void#>)
-                    
+                    view?.present(alert, animated: true)
                 }
-//                guard let coordinates = coordinates else {
-//                    view?.presentAlert(message: "didn't find current location")
-//                    return
-//                }
-//                view?.setupView(coordinates)
             }
         }
     }

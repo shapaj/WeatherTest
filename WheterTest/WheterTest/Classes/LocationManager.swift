@@ -90,35 +90,23 @@ class LocationManager: NSObject, LocationService {
     // MARK: LocationService protocol
     
     func getCurrentLocation(complition: @escaping (LocationResult<Coordinates, UIAlertController>) -> Void) {
-       
         self.complition = complition
         locationAutorisation()
-        // TODO get Location
     }
 }
 
 @frozen public enum LocationResult<Coordinates, Alert> where Alert : UIAlertController {
-
-    /// A success, storing a `Success` value.
     case success(Coordinates)
-
-    /// A failure, storing a `Failure` value.
     case failure(Alert)
-    
 }
+
 extension LocationManager: CLLocationManagerDelegate {
     
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last?.coordinate else { return }
         
-        if !regionIsSet {
-            region = MKCoordinateRegion(center: location, latitudinalMeters: 1500, longitudinalMeters: 1500)
-        
-//        MKCoordinateRegion(center: location, span: MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1))
-            //mapView.region = region
-            regionIsSet = true
-        }
+        complition?(.success(Coordinates(lon: location.longitude, lat: location.latitude)))
     }
     
     @available(iOS 5.0, *)
