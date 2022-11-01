@@ -15,6 +15,7 @@ protocol DaylyInfoDelegate: AnyObject {
 
 class DaylyInfo: UIView, Loadable, ViewUpdateble {
     
+    var dataManager = DataManager()
     var location: Coordinates?
     weak var delegate: DaylyInfoDelegate?
     
@@ -47,6 +48,8 @@ class DaylyInfo: UIView, Loadable, ViewUpdateble {
 
         cityImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapToPickLocation)))
         cityName.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapToPickLocation)))
+        
+        location = dataManager.getsavedCoordinates()
     }
     
     private func updatePartsOfDay(_ partOfDayModels: [PartsOfDayWeather]) {
@@ -78,7 +81,6 @@ class DaylyInfo: UIView, Loadable, ViewUpdateble {
         if let viewModel = viewModel as? DaylyInfoViewModel {
             
             location = viewModel.location
-            cityName.text = viewModel.cityName
             datePresentation.text = viewModel.datePresentation
             temperatureLabel.text = viewModel.temperature
             humidityLabel.text = viewModel.humidity
@@ -92,19 +94,6 @@ class DaylyInfo: UIView, Loadable, ViewUpdateble {
             updatePartsOfDay(viewModel)
         }
     }
-}
-
-struct DaylyInfoViewModel {
-    let location: Coordinates
-    let cityName: String
-    let datePresentation: String
-    let weatherIconURL: URL?
-    let temperature: String
-    let humidity: String
-    let wind: String
-    let partsOfDayWeather: [PartsOfDayWeather]
-    
-    // TODO: INIT
 }
 
 struct GeoCityViewModel {

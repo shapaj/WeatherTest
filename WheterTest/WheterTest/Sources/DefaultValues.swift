@@ -19,4 +19,9 @@ struct DefaultValues {
         static let darkBlue = UIColor(named: "DarkBlue")!
         static let white = UIColor(named: "White")!
     }
+    
+    struct Strings {
+        static let gradusCelsiusLit = "°C"
+        static let mitersPerSeccond = "mitersPerSeccond".localized()
+    }
 }

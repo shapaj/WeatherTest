@@ -45,26 +45,35 @@ struct Clouds: Decodable {
     let all: Int
 }
 
-struct Sys: Decodable {
-    let type: Int //": 2,
-    let id: Int//": 2004688,
-    let country: String//": "IT",
-    let sunrise: Int//": 1667022522,
-    let sunset: Int//": 1667059838
-}
-
 struct CurrentWeatherModel: Decodable {
-    let coord : Coordinates
-    let weather : [WeatherRepresention]
+    let coord: Coordinates
+    let weather: [WeatherRepresention]
     let base: String
     let main: WeatherInfo
     let visibility: Int
     let wind: WindModel
     let clouds: Clouds
-    let dt: Int // 1667058302,
-    let sys: Sys
+    let dt: Int64 // 1667058302,
     let timezone: Int // 7200,
-    let id: Int // City ID expl:3163858,
+    let id: Int64 // City ID expl:3163858,
     let name: String // City name expl:"Zocca",
     let cod: Int // request status 200
+}
+
+struct DaylyInfoViewModel {
+    let location: Coordinates
+    let datePresentation: String
+    let weatherIconURL: URL?
+    let temperature: String
+    let humidity: String
+    let wind: String
+    
+    init(model: CurrentWeatherModel) {
+        location = model.coord
+        datePresentation =  model.dt.inDate().presentation()
+        weatherIconURL = OWMURLManager.weatherIcon(model.weather.first?.icon, size: .normal).createURL()
+        temperature = String(format: "%.0f", model.main.temp) + DefaultValues.Strings.gradusCelsiusLit
+        humidity = String(format: "%.0f", model.main.humidity) + "%"
+        wind = String(format: "%.1f", model.wind.speed) + "" + DefaultValues.Strings.mitersPerSeccond
+    }
 }

@@ -91,6 +91,7 @@ class LocationManager: NSObject, LocationService {
     // MARK: LocationService protocol
     
     func getCurrentLocation(complition: @escaping (LocationResult<Coordinates, UIAlertController>) -> Void) {
+        detected = false
         self.complition = complition
         locationAutorisation()
     }

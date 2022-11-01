@@ -27,7 +27,6 @@ struct TimeForcastModel: Decodable {
     let wind: WindModel
     let visibility: Int
     let pop: Int
-    let sys: Sys
     let dt_txt: String
 }
 

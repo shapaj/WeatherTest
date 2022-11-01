@@ -32,14 +32,13 @@ final class HomePresenter: HomePresenterProtocol {
     // MARK: private methods
     
     private func updateLocation() {
-        locationService?.getCurrentLocation { [weak self] result in
+        locationService?.getCurrentLocation { [view] result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let coordinates):
-                    self?.view?.setupView(coordinates)
-                    self?.updateCityInfo(coordinates: coordinates)
+                    view?.setupView(coordinates)
                 case .failure(let alert):
-                    self?.view?.present(alert, animated: true)
+                    view?.present(alert, animated: true)
                 }
             }
         }
@@ -47,7 +46,6 @@ final class HomePresenter: HomePresenterProtocol {
     
     private func updateCityInfo(coordinates: Coordinates) {
         networkService?.getCityByCoordinates(coordinates: coordinates) { [weak self] result in
-            
             switch result {
             case .success(let cites):
                 self?.updateCityOnView(curentCity: cites.first)
@@ -74,6 +72,10 @@ final class HomePresenter: HomePresenterProtocol {
             switch result {
             case .success(let weather):
                 self?.currentWeatherModel = weather
+                let viewModel = DaylyInfoViewModel(model: weather)
+                DispatchQueue.main.async {
+                    self?.view?.setupView(viewModel)
+                }
             case .failure(let error):
                 self?.view?.presentAlert(message: error.localizedDescription)
             }
@@ -110,6 +112,8 @@ final class HomePresenter: HomePresenterProtocol {
             updateLocation()
             return
         }
+        
+        updateCityInfo(coordinates: location)
         updateWeather(location)
     }
 }

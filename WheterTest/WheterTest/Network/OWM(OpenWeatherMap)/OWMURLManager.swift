@@ -7,10 +7,17 @@
 
 import Foundation
 
+enum AppIconSizes: String {
+    case small = "@1x.png"
+    case normal = "@2x.png"
+    case large = "@3x.png"
+}
+
 enum OWMURLManager: URLManagerProtocol {
     
     case weather(coordinates: Coordinates)
     case forecast(coordinates: Coordinates)
+    case weatherIcon(_ iconID: String?, size: AppIconSizes)
 
     func createURL() -> URL? {
         switch self {
@@ -22,10 +29,16 @@ enum OWMURLManager: URLManagerProtocol {
             return getURL(urlPaths: ["forecast"],
                           queryItems: ["lat": String(coordinates.lat),
                                        "lon": String(coordinates.lon)])
+        case .weatherIcon(let iconID, size: let size):
+            guard let iconID = iconID else {
+                return nil
+            }
+
+            return URL(string: OWMDefaultValues.imageURLPatern + iconID + size.rawValue)
         }
     }
 
-    func getURL(urlPaths: [String]?, queryItems: [String: String]?) -> URL? {
+    private func getURL(urlPaths: [String]?, queryItems: [String: String]?) -> URL? {
         guard var urlComponents: URLComponents = URLComponents(string: OWMDefaultValues.apiURL) else { return nil }
         urlPaths?.forEach { urlComponents.path.append("/\($0)") }
         urlComponents.queryItems = queryItems?.map { URLQueryItem(name: $0.key, value: $0.value) }
@@ -42,7 +55,7 @@ enum GEOURLManager: URLManagerProtocol {
     
     case direct(name: String)
     case reverse(coordinates: Coordinates)
-
+    
     func createURL() -> URL? {
         switch self {
         case .direct(let name):
@@ -55,7 +68,7 @@ enum GEOURLManager: URLManagerProtocol {
         }
     }
 
-    func getURL(urlPaths: [String]?, queryItems: [String: String]?) -> URL? {
+    private func getURL(urlPaths: [String]?, queryItems: [String: String]?) -> URL? {
         guard var urlComponents: URLComponents = URLComponents(string: OWMDefaultValues.geoAPIURL) else { return nil }
         urlPaths?.forEach { urlComponents.path.append("/\($0)") }
         urlComponents.queryItems = queryItems?.map { URLQueryItem(name: $0.key, value: $0.value) }
