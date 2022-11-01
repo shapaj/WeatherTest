@@ -60,6 +60,7 @@ final class NetworkManager {
                 let result = try JSONDecoder().decode(T.self, from: data)
                 completionHandler(.success(result))
             } catch {
+                print(error.localizedDescription)
                 completionHandler(.failure(error))
             }
         }

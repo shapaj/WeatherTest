@@ -61,6 +61,7 @@ class DaylyInfo: UIView, Loadable, ViewUpdateble {
     }
     
     @IBAction func getCurrentLocation(_ sender: UIButton) {
+        location = nil
         delegate?.updateWithLocation(nil)
     }
   
@@ -85,6 +86,8 @@ class DaylyInfo: UIView, Loadable, ViewUpdateble {
             
             loadImage(with: viewModel.weatherIconURL, into: currentWeatherIcon)
             
+        } else if let viewModel = viewModel as? GeoCityViewModel {
+            cityName.text = viewModel.cityName
         } else if let viewModel = viewModel as? [PartsOfDayWeather] {
             updatePartsOfDay(viewModel)
         }
@@ -102,4 +105,12 @@ struct DaylyInfoViewModel {
     let partsOfDayWeather: [PartsOfDayWeather]
     
     // TODO: INIT
+}
+
+struct GeoCityViewModel {
+    let cityName: String
+    
+    init(model: GeoCityModel) {
+        cityName = model.name
+    }
 }

@@ -7,6 +7,4 @@
 
 import Foundation
 
-protocol HomePresenterProtocol: LifeCycleProtocol, DaylyInfoDelegate {
-    
-}
+protocol HomePresenterProtocol: LifeCycleProtocol, DaylyInfoDelegate { }

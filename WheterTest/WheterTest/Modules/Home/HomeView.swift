@@ -42,6 +42,8 @@ final class HomeView: BaseViewController, HomeViewProtocol, UITableViewDelegate,
             daylyInfoView.didPickLocation(location: location)
         } else if let viewModel = viewModel as? DaylyInfoViewModel {
             daylyInfoView.setupView(viewModel)
+        } else if let viewModel = viewModel as? GeoCityViewModel {
+            daylyInfoView.setupView(viewModel)
         } else {
             fatalError("uninspectable type \(viewModel.self)")
         }

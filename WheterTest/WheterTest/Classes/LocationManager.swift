@@ -15,6 +15,7 @@ protocol LocationService {
 
 class LocationManager: NSObject, LocationService {
     
+    var detected = false
     private var regionIsSet = false
     private var region: MKCoordinateRegion?
     private var locationManager = CLLocationManager()
@@ -105,8 +106,9 @@ extension LocationManager: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last?.coordinate else { return }
-        
+        if detected { return }
         complition?(.success(Coordinates(lon: location.longitude, lat: location.latitude)))
+        detected = true
     }
     
     @available(iOS 5.0, *)

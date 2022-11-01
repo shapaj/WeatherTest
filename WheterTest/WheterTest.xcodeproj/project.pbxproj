@@ -11,6 +11,7 @@
 		2A1B8AD3290C60690059C3D5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1B8AD2290C60690059C3D5 /* SceneDelegate.swift */; };
 		2A1B8ADA290C60730059C3D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A1B8AD9290C60730059C3D5 /* Assets.xcassets */; };
 		2A1B8ADD290C60730059C3D5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A1B8ADB290C60730059C3D5 /* LaunchScreen.storyboard */; };
+		2A2542E329115D25006DA27B /* GeoCityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2542E229115D25006DA27B /* GeoCityModel.swift */; };
 		2A592A3C290C79D70069B333 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A592A3B290C79D70069B333 /* Colors.xcassets */; };
 		2A592A41290C7CCF0069B333 /* HomeAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A592A40290C7CCF0069B333 /* HomeAssembly.swift */; };
 		2A592A43290C7CE80069B333 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A592A42290C7CE80069B333 /* HomePresenter.swift */; };
@@ -55,6 +56,7 @@
 		2A1B8AD9290C60730059C3D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2A1B8ADC290C60730059C3D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2A1B8ADE290C60730059C3D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2A2542E229115D25006DA27B /* GeoCityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoCityModel.swift; sourceTree = "<group>"; };
 		2A592A3B290C79D70069B333 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		2A592A40290C7CCF0069B333 /* HomeAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAssembly.swift; sourceTree = "<group>"; };
 		2A592A42290C7CE80069B333 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
@@ -266,6 +268,7 @@
 			children = (
 				2A9AA6CC290D894100898AFE /* CurrentWeatherModel.swift */,
 				2A9AA6D4290E7C8C00898AFE /* WeeklyWeatherModel.swift */,
+				2A2542E229115D25006DA27B /* GeoCityModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -441,6 +444,7 @@
 				2A9AA6D3290DBB7600898AFE /* OWMNetworkService.swift in Sources */,
 				2A1B8AD1290C60690059C3D5 /* AppDelegate.swift in Sources */,
 				2A9AA6C0290D806600898AFE /* OWMDefaultValues.swift in Sources */,
+				2A2542E329115D25006DA27B /* GeoCityModel.swift in Sources */,
 				2A9AA6D5290E7C8C00898AFE /* WeeklyWeatherModel.swift in Sources */,
 				2A9AA6E1290F258000898AFE /* URLManagerProtocol.swift in Sources */,
 				2A9AA6D8290E87DC00898AFE /* DaylyInfo.swift in Sources */,

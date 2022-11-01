@@ -17,6 +17,7 @@ final class HomePresenter: HomePresenterProtocol {
     
     private var currentWeatherModel: CurrentWeatherModel?
     private var weeklyWeatherModel: WeeklyWeatherModel?
+    private var curentCityModel: GeoCityModel?
     
     init(view: HomeViewProtocol, container: Container) {
         self.view = view
@@ -31,15 +32,40 @@ final class HomePresenter: HomePresenterProtocol {
     // MARK: private methods
     
     private func updateLocation() {
-        locationService?.getCurrentLocation { [view] result in
+        locationService?.getCurrentLocation { [weak self] result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let coordinates):
-                    view?.setupView(coordinates)
+                    self?.view?.setupView(coordinates)
+                    self?.updateCityInfo(coordinates: coordinates)
                 case .failure(let alert):
-                    view?.present(alert, animated: true)
+                    self?.view?.present(alert, animated: true)
                 }
             }
+        }
+    }
+    
+    private func updateCityInfo(coordinates: Coordinates) {
+        networkService?.getCityByCoordinates(coordinates: coordinates) { [weak self] result in
+            
+            switch result {
+            case .success(let cites):
+                self?.updateCityOnView(curentCity: cites.first)
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    self?.view?.presentAlert(message: error.localizedDescription)
+                }
+            }
+        }
+    }
+    
+    private func updateCityOnView(curentCity: GeoCityModel?) {
+        guard let curentCity = curentCity else { return }
+        curentCityModel = curentCity
+        
+        let viewModel =  GeoCityViewModel(model: curentCity)
+        DispatchQueue.main.async { [view] in
+            view?.setupView(viewModel)
         }
     }
     
