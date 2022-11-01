@@ -7,6 +7,8 @@
 
 import Foundation
 
+typealias Temperature = Double
+
 struct WeatherRepresention: Decodable {
     let id: Int
     let main: String
@@ -15,15 +17,15 @@ struct WeatherRepresention: Decodable {
 }
 
 struct WeatherInfo: Decodable {
-    let temp: Double
-    let feels_like: Double
-    let temp_min: Double
-    let temp_max: Double
-    let pressure: Double // hPa
+    let temp: Temperature
+    let feels_like: Double?
+    let temp_min: Temperature?
+    let temp_max: Temperature?
+    let pressure: Double? // hPa
     let humidity: Int // vlazhnost
-    let sea_level: Double // hPa
-    let grnd_level: Double // hPa
-    let temp_kf: Double?
+    let sea_level: Double? // hPa
+    let grnd_level: Double? // hPa
+    let temp_kf: Temperature?
 }
 
 struct Coordinates: Decodable {
@@ -37,8 +39,8 @@ struct Coordinates: Decodable {
 
 struct WindModel: Decodable {
     let speed: Double
-    let deg: Int
-    let gust: Double
+    let deg: Int?
+    let gust: Double?
 }
 
 struct Clouds: Decodable {
@@ -48,13 +50,13 @@ struct Clouds: Decodable {
 struct CurrentWeatherModel: Decodable {
     let coord: Coordinates
     let weather: [WeatherRepresention]
-    let base: String
+    let base: String?
     let main: WeatherInfo
-    let visibility: Int
+    let visibility: Int?
     let wind: WindModel
-    let clouds: Clouds
+    let clouds: Clouds?
     let dt: Int64 // 1667058302,
-    let timezone: Int // 7200,
+    let timezone: Int64 // 7200,
     let id: Int64 // City ID expl:3163858,
     let name: String // City name expl:"Zocca",
     let cod: Int // request status 200
@@ -70,9 +72,9 @@ struct DaylyInfoViewModel {
     
     init(model: CurrentWeatherModel) {
         location = model.coord
-        datePresentation =  model.dt.inDate().presentation()
+        datePresentation =  model.dt.inDate(model.timezone).presentation()
         weatherIconURL = OWMURLManager.weatherIcon(model.weather.first?.icon, size: .normal).createURL()
-        temperature = String(format: "%.0f", model.main.temp) + DefaultValues.Strings.gradusCelsiusLit
+        temperature = model.main.temp.getPresentation()
         humidity = String(format: "%.0f", model.main.humidity) + "%"
         wind = String(format: "%.1f", model.wind.speed) + "" + DefaultValues.Strings.mitersPerSeccond
     }

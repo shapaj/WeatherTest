@@ -15,6 +15,7 @@
 		2A2542E5291181B9006DA27B /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2542E4291181B9006DA27B /* DataManager.swift */; };
 		2A2542E729118733006DA27B /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2542E629118732006DA27B /* Date+Extension.swift */; };
 		2A2542F329119F6A006DA27B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2A2542F529119F6A006DA27B /* Localizable.strings */; };
+		2A2542F82911AAF0006DA27B /* Temperature+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2542F72911AAF0006DA27B /* Temperature+Extension.swift */; };
 		2A592A3C290C79D70069B333 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A592A3B290C79D70069B333 /* Colors.xcassets */; };
 		2A592A41290C7CCF0069B333 /* HomeAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A592A40290C7CCF0069B333 /* HomeAssembly.swift */; };
 		2A592A43290C7CE80069B333 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A592A42290C7CE80069B333 /* HomePresenter.swift */; };
@@ -61,6 +62,7 @@
 		2A2542E629118732006DA27B /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		2A2542EC2911998D006DA27B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2A2542F429119F6A006DA27B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2A2542F72911AAF0006DA27B /* Temperature+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Temperature+Extension.swift"; sourceTree = "<group>"; };
 		2A592A3B290C79D70069B333 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		2A592A40290C7CCF0069B333 /* HomeAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAssembly.swift; sourceTree = "<group>"; };
 		2A592A42290C7CE80069B333 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 				2A9AA6C5290D841E00898AFE /* String+Extensions.swift */,
 				2A9AA6C7290D848A00898AFE /* UIView+Extensions.swift */,
 				2A2542E629118732006DA27B /* Date+Extension.swift */,
+				2A2542F72911AAF0006DA27B /* Temperature+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -454,6 +457,7 @@
 				2A9AA6D8290E87DC00898AFE /* DaylyInfo.swift in Sources */,
 				2A9AA6C6290D841E00898AFE /* String+Extensions.swift in Sources */,
 				2A9AA6BE290D69C500898AFE /* OWMURLManager.swift in Sources */,
+				2A2542F82911AAF0006DA27B /* Temperature+Extension.swift in Sources */,
 				2A9AA6C8290D848A00898AFE /* UIView+Extensions.swift in Sources */,
 				2A2542E729118733006DA27B /* Date+Extension.swift in Sources */,
 				2A592A49290C7DFE0069B333 /* HomePresenterProtocol.swift in Sources */,

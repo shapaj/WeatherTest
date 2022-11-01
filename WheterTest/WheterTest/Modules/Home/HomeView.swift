@@ -34,16 +34,18 @@ final class HomeView: BaseViewController, HomeViewProtocol, UITableViewDelegate,
         tableView.register(UINib.init(nibName: DayViewCell.getIdentifier(), bundle: Bundle.main), forCellReuseIdentifier: DayViewCell.getIdentifier())
     }
     
-    func setupView(_ viewModel: Any) {
+    func updateViewInterface(_ viewModel: Any) {
         if let viewModel = viewModel as? [DayViewCellViewModel] {
             tableViewModel = viewModel
             tableView.reloadData()
         } else if let location = viewModel as? Coordinates {
             daylyInfoView.didPickLocation(location: location)
         } else if let viewModel = viewModel as? DaylyInfoViewModel {
-            daylyInfoView.setupView(viewModel)
+            daylyInfoView.updateViewInterface(viewModel)
         } else if let viewModel = viewModel as? GeoCityViewModel {
-            daylyInfoView.setupView(viewModel)
+            daylyInfoView.updateViewInterface(viewModel)
+        } else if let viewModel = viewModel as? [PartOfDayWeatherViewModel] {
+            daylyInfoView.updateViewInterface(viewModel)
         } else {
             fatalError("uninspectable type \(viewModel.self)")
         }
@@ -65,7 +67,7 @@ final class HomeView: BaseViewController, HomeViewProtocol, UITableViewDelegate,
             assertionFailure("oups... ckrash")
             return UITableViewCell()
         }
-        cell.setupView(tableViewModel[indexPath.row])
+        cell.updateViewInterface(tableViewModel[indexPath.row])
 
         return cell
     }

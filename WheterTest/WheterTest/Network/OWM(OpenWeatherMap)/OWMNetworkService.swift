@@ -23,11 +23,13 @@ class OWMNetworkService: NetworkService {
     
     func getWeather(coordinates: Coordinates, complition: @escaping (Result<CurrentWeatherModel, Error>) -> Void) {
         let url = OWMURLManager.weather(coordinates: coordinates).createURL()
+        print(url!)
         networkManager?.getModel(url: url, headers: nil, parametres: nil, completionHandler: complition)
     }
     
     func getForecast(coordinates: Coordinates, complition: @escaping (Result<WeeklyWeatherModel, Error>) -> Void) {
         let url = OWMURLManager.forecast(coordinates: coordinates).createURL()
+        print(url!)
         networkManager?.getModel(url: url, headers: nil, parametres: nil, completionHandler: complition)
     }
     

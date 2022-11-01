@@ -8,5 +8,5 @@
 import Foundation
 
 protocol ViewUpdateble {
-    func setupView(_ viewModel: Any)
+    func updateViewInterface(_ viewModel: Any)
 }

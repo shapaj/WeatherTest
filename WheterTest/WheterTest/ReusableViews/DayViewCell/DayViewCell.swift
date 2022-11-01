@@ -30,7 +30,7 @@ class DayViewCell: UITableViewCell, ViewUpdateble {
         icon.image = DefaultValues.Images.noImage
     }
     
-    func setupView(_ viewModel: Any) {
+    func updateViewInterface(_ viewModel: Any) {
         guard let viewModel = viewModel as? DayViewCellViewModel else { return }
         
         dayOfWeek.text = viewModel.dayOfWeek

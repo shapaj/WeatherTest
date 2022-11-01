@@ -52,10 +52,10 @@ class DaylyInfo: UIView, Loadable, ViewUpdateble {
         location = dataManager.getsavedCoordinates()
     }
     
-    private func updatePartsOfDay(_ partOfDayModels: [PartsOfDayWeather]) {
+    private func updatePartsOfDay(_ partOfDayModels: [PartOfDayWeatherViewModel]) {
         guard self.partsOfDay.count == partOfDayModels.count else { return }
-        self.partsOfDay.forEach { partOfDay in
-            partOfDay.setupView(partOfDay.index(ofAccessibilityElement: partOfDay))
+        for i in 0...partOfDayModels.count - 1 {
+            partsOfDay[i].updateViewInterface(partOfDayModels[i])
         }
     }
     
@@ -77,7 +77,7 @@ class DaylyInfo: UIView, Loadable, ViewUpdateble {
         delegate?.updateWithLocation(location)
     }
     
-    func setupView(_ viewModel: Any) {
+    func updateViewInterface(_ viewModel: Any) {
         if let viewModel = viewModel as? DaylyInfoViewModel {
             
             location = viewModel.location
@@ -90,7 +90,7 @@ class DaylyInfo: UIView, Loadable, ViewUpdateble {
             
         } else if let viewModel = viewModel as? GeoCityViewModel {
             cityName.text = viewModel.cityName
-        } else if let viewModel = viewModel as? [PartsOfDayWeather] {
+        } else if let viewModel = viewModel as? [PartOfDayWeatherViewModel] {
             updatePartsOfDay(viewModel)
         }
     }

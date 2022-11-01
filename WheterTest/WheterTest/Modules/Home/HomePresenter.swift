@@ -36,7 +36,7 @@ final class HomePresenter: HomePresenterProtocol {
             DispatchQueue.main.async {
                 switch result {
                 case .success(let coordinates):
-                    view?.setupView(coordinates)
+                    view?.updateViewInterface(coordinates)
                 case .failure(let alert):
                     view?.present(alert, animated: true)
                 }
@@ -63,7 +63,7 @@ final class HomePresenter: HomePresenterProtocol {
         
         let viewModel =  GeoCityViewModel(model: curentCity)
         DispatchQueue.main.async { [view] in
-            view?.setupView(viewModel)
+            view?.updateViewInterface(viewModel)
         }
     }
     
@@ -74,7 +74,7 @@ final class HomePresenter: HomePresenterProtocol {
                 self?.currentWeatherModel = weather
                 let viewModel = DaylyInfoViewModel(model: weather)
                 DispatchQueue.main.async {
-                    self?.view?.setupView(viewModel)
+                    self?.view?.updateViewInterface(viewModel)
                 }
             case .failure(let error):
                 self?.view?.presentAlert(message: error.localizedDescription)
@@ -85,13 +85,56 @@ final class HomePresenter: HomePresenterProtocol {
     private func getWeeklyForcast(_ location: Coordinates) {
         networkService?.getForecast(coordinates: location) { [weak self] result in
             switch result {
-                
+
             case .success(let weeklyWeather):
                 self?.weeklyWeatherModel = weeklyWeather
+                self?.processingOfModel()
             case .failure(let error):
                 self?.view?.presentAlert(message: error.localizedDescription)
             }
         }
+    }
+    
+    private func processingOfModel() {
+        guard let weeklyWeather = weeklyWeatherModel else { return }
+        let partsOfDayViewModel = weeklyWeather.list.prefix(6).map { model in
+            return PartOfDayWeatherViewModel(model: model, city: weeklyWeather.city)
+        }
+        
+        DispatchQueue.main.async { [view] in
+            view?.updateViewInterface(partsOfDayViewModel)
+        }
+        
+        let curentDate = Date().endOfDay.timeIntervalSince1970
+        
+        let forcastDays: [ForcastDay] = []
+        
+        // todo
+//        for model in weeklyWeather.list {
+//            guard TimeInterval(model.dt) >= todayEnd else { continue }
+//
+//
+//            curentDate
+//        }
+        
+        
+    }
+    
+    struct ForcastDay {
+        var tempMin: Temperature {
+            didSet {
+                tempMin = min(oldValue, tempMin)
+            }
+        }
+        
+        var tempMax: Temperature {
+            didSet {
+                tempMax = max(oldValue, tempMax)
+            }
+        }
+        
+        var daylyForcast: [PartOfDayWeatherViewModel]
+        
     }
     
     private func updateWeather(_ location: Coordinates) {
