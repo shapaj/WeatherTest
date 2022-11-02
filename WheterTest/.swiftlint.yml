@@ -1,0 +1,15 @@
+
+
+disabled_rules:
+  - identifier_name
+  - vertical_whitespace
+  - comment_spacing
+  - trailing_whitespace
+  - colon
+  - weak_delegate
+
+excluded:
+  - Pods
+
+
+line_length: 150

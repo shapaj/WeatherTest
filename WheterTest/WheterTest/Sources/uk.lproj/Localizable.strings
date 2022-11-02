@@ -1,0 +1,13 @@
+
+
+//WEEK
+"Monday" = "M";
+"Tuesday" = "T";
+"Wednesday" = "W";
+"Thursday" = "R";
+"Friday" = "F";
+"Saturday" = "S";
+"Sunday" = "U";
+
+
+"mitersPerSeccond" = "M/sec"
