@@ -80,6 +80,9 @@ class SearchView: BaseViewController, SearchViewProtocol {
 }
 
 extension SearchView: UISearchControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate {
+    func updateSearchResults(for searchController: UISearchController) {
+        
+    }
     
     func didDismissSearchController(_ searchController: UISearchController) {
         presenter.cancelButtonTaped()
