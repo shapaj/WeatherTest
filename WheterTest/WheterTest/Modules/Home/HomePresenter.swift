@@ -14,6 +14,7 @@ final class HomePresenter: HomePresenterProtocol {
     
     var networkService: NetworkService?
     var locationService: LocationService?
+    var forcastDays: [ForcastDay] = []
     
     private var currentWeatherModel: CurrentWeatherModel?
     private var weeklyWeatherModel: WeeklyWeatherModel?
@@ -105,35 +106,30 @@ final class HomePresenter: HomePresenterProtocol {
             view?.updateViewInterface(partsOfDayViewModel)
         }
         
-        let curentDate = Date().endOfDay.timeIntervalSince1970
+        let endToday = Date().endOfDay.timeIntervalSince1970
         
-        let forcastDays: [ForcastDay] = []
-        
-        // todo
-//        for model in weeklyWeather.list {
-//            guard TimeInterval(model.dt) >= todayEnd else { continue }
-//
-//
-//            curentDate
-//        }
-        
-        
-    }
-    
-    struct ForcastDay {
-        var tempMin: Temperature {
-            didSet {
-                tempMin = min(oldValue, tempMin)
+        for model in weeklyWeather.list.filter({ TimeInterval($0.dt) > endToday }) {
+
+            if forcastDays.isEmpty {
+                forcastDays.append(ForcastDay(date: model.dt.inDate().startOfDay))
+            }
+            
+            if let curentForcast = forcastDays.last,
+               model.dt.inDate() > curentForcast.date.endOfDay {
+                forcastDays.append(ForcastDay(date: model.dt.inDate().startOfDay))
+            }
+                
+            if let curentForcast = forcastDays.last {
+                curentForcast.setMax(newValue: model.main.temp_max)
+                curentForcast.setMin(newValue: model.main.temp_min)
+                curentForcast.iconURL = OWMURLManager.weatherIcon(model.weather.first?.icon, size: .normal).createURL()
             }
         }
         
-        var tempMax: Temperature {
-            didSet {
-                tempMax = max(oldValue, tempMax)
-            }
+        let forcastDaysModel = forcastDays.compactMap { DayViewCellViewModel(model: $0) }
+        DispatchQueue.main.async { [view] in
+            view?.updateViewInterface(forcastDaysModel)
         }
-        
-        var daylyForcast: [PartOfDayWeatherViewModel]
         
     }
     
@@ -158,5 +154,9 @@ final class HomePresenter: HomePresenterProtocol {
         
         updateCityInfo(coordinates: location)
         updateWeather(location)
+    }
+    
+    func tapToPickLocationOnMap () {
+        view?.presentMap()
     }
 }

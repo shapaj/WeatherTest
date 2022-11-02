@@ -7,6 +7,10 @@
 
 import UIKit
 
-protocol HomeViewProtocol: UIViewController, ViewUpdateble {
+protocol HomeViewProtocol: UIViewController, ViewUpdateble, HomeViewRouterProtocol {
     
+}
+
+protocol HomeViewRouterProtocol {
+    func presentMap()
 }

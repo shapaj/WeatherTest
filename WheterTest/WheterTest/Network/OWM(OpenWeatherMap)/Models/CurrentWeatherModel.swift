@@ -19,8 +19,8 @@ struct WeatherRepresention: Decodable {
 struct WeatherInfo: Decodable {
     let temp: Temperature
     let feels_like: Double?
-    let temp_min: Temperature?
-    let temp_max: Temperature?
+    let temp_min: Temperature
+    let temp_max: Temperature
     let pressure: Double? // hPa
     let humidity: Int // vlazhnost
     let sea_level: Double? // hPa

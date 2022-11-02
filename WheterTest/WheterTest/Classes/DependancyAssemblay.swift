@@ -13,7 +13,6 @@ struct DependancyAssemblay {
     static func getBaseContainer() -> Container {
         let container = Container()
         registerNetworkService(container: container)
-        registerDateManager(container: container)
         registerLocationManager(container: container)
         registerNetworkManager(container: container)
         
@@ -29,12 +28,6 @@ struct DependancyAssemblay {
     static func registerNetworkManager(container: Container) {
         container.register(NetworkManager.self, factory: { resolver in
             return NetworkManager()
-        })
-    }
-    
-    static func registerDateManager(container: Container) {
-        container.register(DateService.self, factory: { resolver in
-            return DateManager()
         })
     }
     

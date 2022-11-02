@@ -11,6 +11,7 @@ import Nuke
 protocol DaylyInfoDelegate: AnyObject {
     func tapToPickLocation()
     func updateWithLocation(_ location: Coordinates?)
+    func tapToPickLocationOnMap()
 }
 
 class DaylyInfo: UIView, Loadable, ViewUpdateble {
@@ -46,7 +47,7 @@ class DaylyInfo: UIView, Loadable, ViewUpdateble {
         view.autoresizingMask = [.flexibleTopMargin, .flexibleBottomMargin, .flexibleHeight, .flexibleWidth]
         view.translatesAutoresizingMaskIntoConstraints = true
 
-        cityImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapToPickLocation)))
+        cityImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapToPickLocationOnMap)))
         cityName.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapToPickLocation)))
         
         location = dataManager.getsavedCoordinates()
@@ -70,6 +71,10 @@ class DaylyInfo: UIView, Loadable, ViewUpdateble {
   
     @objc func tapToPickLocation(_ sender: UITapGestureRecognizer) {
         delegate?.tapToPickLocation()
+    }
+    
+    @objc func tapToPickLocationOnMap(_ sender: UITapGestureRecognizer) {
+        delegate?.tapToPickLocationOnMap()
     }
     
     func didPickLocation(location: Coordinates) {

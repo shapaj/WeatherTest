@@ -22,7 +22,6 @@ final class HomeView: BaseViewController, HomeViewProtocol, UITableViewDelegate,
         super.viewDidLoad()
         setupViewController()
         presenter.viewDidLoad?()
-        view.backgroundColor = .yellow
     }
     
     private func setupViewController() {
@@ -49,6 +48,12 @@ final class HomeView: BaseViewController, HomeViewProtocol, UITableViewDelegate,
         } else {
             fatalError("uninspectable type \(viewModel.self)")
         }
+    }
+    
+    // MARK: HomeViewRouterProtocol methods
+    
+    func presentMap() {
+        // TODO: navigationController?.present(MapAssembly.CreateModule(), animated: true)
     }
     
     // MARK: TableView  dataSourse/delegate
