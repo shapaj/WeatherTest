@@ -154,6 +154,7 @@ final class HomePresenter: HomePresenterProtocol {
     
     func tapToPickLocation() {
         view?.presentSearch(container: container) { [weak self] location in
+            self?.view?.updateViewInterface(location)
             self?.updateCityInfo(coordinates: location)
             self?.updateWeather(location)
         }
@@ -163,6 +164,7 @@ final class HomePresenter: HomePresenterProtocol {
         view?.presentMap(container: container) { [weak self] location in
             self?.updateCityInfo(coordinates: location)
             self?.updateWeather(location)
+            self?.view?.updateViewInterface(location)
         }
     }
 }

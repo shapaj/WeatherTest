@@ -35,6 +35,7 @@ class OWMNetworkService: NetworkService {
     
     func getCityByName(name: String, complition: @escaping(Result<[GeoCityModel], Error>) -> Void) {
         let url = GEOURLManager.direct(name: name).createURL()
+        print(url!)
         networkManager?.getModel(url: url, headers: nil, parametres: nil, completionHandler: complition)
     }
     

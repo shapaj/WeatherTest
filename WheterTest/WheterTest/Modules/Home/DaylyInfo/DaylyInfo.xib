@@ -148,6 +148,9 @@
                             <state key="normal" image="Location">
                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                             </state>
+                            <connections>
+                                <action selector="getCurrentLocation:" destination="-1" eventType="touchUpInside" id="Q6u-87-qe6"/>
+                            </connections>
                         </button>
                         <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GeoLogo" translatesAutoresizingMaskIntoConstraints="NO" id="zbk-qv-NBs">
                             <rect key="frame" x="10" y="10" width="30" height="30"/>

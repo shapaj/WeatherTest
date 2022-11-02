@@ -28,7 +28,7 @@ struct WeatherInfo: Decodable {
     let temp_kf: Temperature?
 }
 
-struct Coordinates: Decodable {
+struct Coordinates: Codable {
     var lon: Double
     var lat: Double
     

@@ -25,4 +25,8 @@ struct DefaultValues {
         static let mitersPerSeccond = "mitersPerSeccond".localized()
         static let selectedPoint    = "selectedPoint".localized()
     }
+    
+    struct Numbers {
+        static let UITableViewCellHeight: CGFloat = CGFloat(60)
+    }
 }
