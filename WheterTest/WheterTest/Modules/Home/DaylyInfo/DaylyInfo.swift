@@ -79,7 +79,8 @@ class DaylyInfo: UIView, Loadable, ViewUpdateble {
     
     func didPickLocation(location: Coordinates) {
         self.location = location
-        delegate?.updateWithLocation(location)
+        dataManager.saveCoordinates(location: location)
+        //delegate?.updateWithLocation(location)
     }
     
     func updateViewInterface(_ viewModel: Any) {

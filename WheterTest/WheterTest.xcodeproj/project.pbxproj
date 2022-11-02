@@ -224,6 +224,7 @@
 		2A592A3F290C7CB80069B333 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				2A9AA6D6290E87AF00898AFE /* DaylyInfo */,
 				2A592A40290C7CCF0069B333 /* HomeAssembly.swift */,
 				2A592A48290C7DFE0069B333 /* HomePresenterProtocol.swift */,
 				2A592A42290C7CE80069B333 /* HomePresenter.swift */,
@@ -253,7 +254,6 @@
 			isa = PBXGroup;
 			children = (
 				2A9AA6DB290EFA4500898AFE /* PartOfDay */,
-				2A9AA6D6290E87AF00898AFE /* DaylyInfo */,
 				2A9AA6B5290D54C400898AFE /* DayViewCell */,
 			);
 			path = ReusableViews;

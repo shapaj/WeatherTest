@@ -9,11 +9,29 @@ import Foundation
 
 class DataManager {
     
-    func saveCoordinates() {
-        
+    private enum ValueCases: String {
+        case curentLocation
     }
     
-    func getsavedCoordinates() -> Coordinates {
-        return Coordinates(lon: 30.5713597, lat: 46.4598861)
+    func saveCoordinates(location: Coordinates?) {
+        encodeData(value: location, key: .curentLocation)
+    }
+    
+    func getsavedCoordinates() -> Coordinates? {
+        return decodeData(key: .curentLocation)
+    }
+    
+    private func encodeData<T:Codable>(value: T, key: ValueCases) {
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(value) {
+            let defaults = UserDefaults.standard
+            defaults.set(encoded, forKey: key.rawValue)
+        }
+    }
+    
+    private func decodeData<T:Codable>(key: ValueCases) -> T? {
+        guard let savedPerson = UserDefaults.standard.object(forKey: key.rawValue) as? Data else { return nil }
+        let decoder = JSONDecoder()
+        return try? decoder.decode(T.self, from: savedPerson)
     }
 }
