@@ -14,16 +14,18 @@ final class HomePresenter: HomePresenterProtocol {
     
     var networkService: NetworkService?
     var locationService: LocationService?
-    var forcastDays: [ForcastDay] = []
     
+    private var forcastDays: [ForcastDay] = []
     private var currentWeatherModel: CurrentWeatherModel?
     private var weeklyWeatherModel: WeeklyWeatherModel?
-    private var curentCityModel: GeoCityModel?
+    private var currentCityModel: GeoCityModel?
+    private var container: Container
     
     init(view: HomeViewProtocol, container: Container) {
         self.view = view
         self.networkService = container.resolve(NetworkService.self)
         self.locationService = container.resolve(LocationService.self)
+        self.container = container
     }
     
     // MARK: view life cycle protocol methods
@@ -49,7 +51,7 @@ final class HomePresenter: HomePresenterProtocol {
         networkService?.getCityByCoordinates(coordinates: coordinates) { [weak self] result in
             switch result {
             case .success(let cites):
-                self?.updateCityOnView(curentCity: cites.first)
+                self?.updateCityOnView(currentCity: cites.first)
             case .failure(let error):
                 DispatchQueue.main.async {
                     self?.view?.presentAlert(message: error.localizedDescription)
@@ -58,11 +60,11 @@ final class HomePresenter: HomePresenterProtocol {
         }
     }
     
-    private func updateCityOnView(curentCity: GeoCityModel?) {
-        guard let curentCity = curentCity else { return }
-        curentCityModel = curentCity
+    private func updateCityOnView(currentCity: GeoCityModel?) {
+        guard let currentCity = currentCity else { return }
+        currentCityModel = currentCity
         
-        let viewModel =  GeoCityViewModel(model: curentCity)
+        let viewModel =  GeoCityViewModel(model: currentCity)
         DispatchQueue.main.async { [view] in
             view?.updateViewInterface(viewModel)
         }
@@ -114,15 +116,15 @@ final class HomePresenter: HomePresenterProtocol {
                 forcastDays.append(ForcastDay(date: model.dt.inDate().startOfDay))
             }
             
-            if let curentForcast = forcastDays.last,
-               model.dt.inDate() > curentForcast.date.endOfDay {
+            if let currentForcast = forcastDays.last,
+               model.dt.inDate() > currentForcast.date.endOfDay {
                 forcastDays.append(ForcastDay(date: model.dt.inDate().startOfDay))
             }
                 
-            if let curentForcast = forcastDays.last {
-                curentForcast.setMax(newValue: model.main.temp_max)
-                curentForcast.setMin(newValue: model.main.temp_min)
-                curentForcast.iconURL = OWMURLManager.weatherIcon(model.weather.first?.icon, size: .normal).createURL()
+            if let currentForcast = forcastDays.last {
+                currentForcast.setMax(newValue: model.main.temp_max)
+                currentForcast.setMin(newValue: model.main.temp_min)
+                currentForcast.iconURL = OWMURLManager.weatherIcon(model.weather.first?.icon, size: .normal).createURL()
             }
         }
         
@@ -157,6 +159,9 @@ final class HomePresenter: HomePresenterProtocol {
     }
     
     func tapToPickLocationOnMap () {
-        view?.presentMap()
+        view?.presentMap(container: container) { [weak self] location in
+            self?.updateCityInfo(coordinates: location)
+            self?.updateWeather(location)
+        }
     }
 }

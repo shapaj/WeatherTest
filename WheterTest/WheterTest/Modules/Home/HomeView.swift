@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import CoreLocation
+import Swinject
 
 final class HomeView: BaseViewController, HomeViewProtocol, UITableViewDelegate, UITableViewDataSource {
     
@@ -52,8 +52,12 @@ final class HomeView: BaseViewController, HomeViewProtocol, UITableViewDelegate,
     
     // MARK: HomeViewRouterProtocol methods
     
-    func presentMap() {
-        // TODO: navigationController?.present(MapAssembly.CreateModule(), animated: true)
+    func presentMap(container: Container, handler: @escaping (Coordinates) -> Void) {
+        
+        let navigationController = UINavigationController(rootViewController: MapAssembly.CreateModule(container: container, handler: handler))
+        DispatchQueue.main.async { [weak self] in
+            self?.present(navigationController, animated: true)
+        }
     }
     
     // MARK: TableView  dataSourse/delegate

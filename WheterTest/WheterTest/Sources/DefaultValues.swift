@@ -23,5 +23,6 @@ struct DefaultValues {
     struct Strings {
         static let gradusCelsiusLit = "°C"
         static let mitersPerSeccond = "mitersPerSeccond".localized()
+        static let selectedPoint    = "selectedPoint".localized()
     }
 }

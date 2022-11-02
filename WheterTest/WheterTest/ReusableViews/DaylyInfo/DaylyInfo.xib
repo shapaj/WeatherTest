@@ -13,7 +13,7 @@
             <connections>
                 <outlet property="cityImage" destination="zbk-qv-NBs" id="1f1-Eq-cpW"/>
                 <outlet property="cityName" destination="asn-Gm-IbI" id="a2X-aP-rfv"/>
-                <outlet property="currentWeatherIcon" destination="6Bd-CZ-VL5" id="A2i-zg-zDh"/>
+                <outlet property="currentWeatherIcon" destination="6Bd-CZ-VL5" id="EgZ-7l-N01"/>
                 <outlet property="datePresentation" destination="aa7-ZF-NTE" id="t6i-lW-5we"/>
                 <outlet property="humidityLabel" destination="XBV-Mn-oQg" id="kfu-ja-yIN"/>
                 <outlet property="partsOfDayStackView" destination="hWP-hZ-uMr" id="lgT-Uv-F5J"/>
@@ -148,9 +148,6 @@
                             <state key="normal" image="Location">
                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                             </state>
-                            <connections>
-                                <action selector="getCurrentLocation:" destination="-1" eventType="touchUpInside" id="uJb-BC-cEb"/>
-                            </connections>
                         </button>
                         <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GeoLogo" translatesAutoresizingMaskIntoConstraints="NO" id="zbk-qv-NBs">
                             <rect key="frame" x="10" y="10" width="30" height="30"/>
@@ -278,6 +275,16 @@
                 <constraint firstItem="AUj-Iw-caY" firstAttribute="top" secondItem="mkP-kk-px8" secondAttribute="bottom" constant="8" symbolic="YES" id="zgw-UO-7Kj"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="P3w-hF-C1G"/>
+                </mask>
+            </variation>
+            <variation key="heightClass=compact-widthClass=regular">
+                <mask key="constraints">
+                    <include reference="P3w-hF-C1G"/>
+                </mask>
+            </variation>
             <point key="canvasLocation" x="137.68115942028987" y="72.991071428571431"/>
         </view>
     </objects>

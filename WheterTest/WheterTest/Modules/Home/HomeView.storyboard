@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
-    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
@@ -15,23 +15,40 @@
             <objects>
                 <viewController id="Y6W-OH-hqX" customClass="HomeView" customModule="WheterTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="7p7-n3-MKg">
-                                <rect key="frame" x="0.0" y="367" width="375" height="300"/>
+                                <rect key="frame" x="0.0" y="562" width="414" height="300"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="cfF-tt-yug"/>
                                     <constraint firstAttribute="height" constant="300" id="gAN-MZ-d1J"/>
                                 </constraints>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="cfF-tt-yug"/>
+                                        <exclude reference="gAN-MZ-d1J"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=compact-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="cfF-tt-yug"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="gAN-MZ-d1J"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="Y6W-OH-hqX" id="CGt-nG-9kS"/>
                                     <outlet property="delegate" destination="Y6W-OH-hqX" id="FGL-wC-fVp"/>
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zav-Cc-dni" customClass="DaylyInfo" customModule="WheterTest" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="367"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="518"/>
                                 <color key="backgroundColor" name="DarkBlue"/>
                             </view>
                         </subviews>
@@ -46,10 +63,13 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="7p7-n3-MKg" secondAttribute="trailing" id="AbY-Bp-0c4"/>
                             <constraint firstItem="7p7-n3-MKg" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="BNj-Cp-otU"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="7p7-n3-MKg" secondAttribute="bottom" id="Kwy-o8-KQj">
+                                <variation key="heightClass=compact-widthClass=compact" constant="-21"/>
                                 <variation key="heightClass=compact-widthClass=regular" constant="-21"/>
                                 <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                             </constraint>
+                            <constraint firstItem="7p7-n3-MKg" firstAttribute="leading" secondItem="zav-Cc-dni" secondAttribute="trailing" id="Pqb-1L-tQy"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="centerX" secondItem="zav-Cc-dni" secondAttribute="trailing" id="SjV-7s-Sv4"/>
+                            <constraint firstItem="zav-Cc-dni" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="T6S-cu-4ca"/>
                             <constraint firstItem="7p7-n3-MKg" firstAttribute="top" secondItem="zav-Cc-dni" secondAttribute="bottom" id="cCq-UG-52Z"/>
                             <constraint firstItem="zav-Cc-dni" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="lAZ-46-mEp"/>
                             <constraint firstItem="7p7-n3-MKg" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="qsP-Bi-EOr"/>
@@ -62,10 +82,21 @@
                                 <exclude reference="SjV-7s-Sv4"/>
                                 <exclude reference="wOK-s8-akb"/>
                                 <exclude reference="4sI-cD-8eD"/>
+                                <exclude reference="T6S-cu-4ca"/>
                                 <exclude reference="1yL-UH-61C"/>
                                 <exclude reference="BNj-Cp-otU"/>
+                                <exclude reference="Pqb-1L-tQy"/>
                                 <exclude reference="cCq-UG-52Z"/>
                                 <exclude reference="qsP-Bi-EOr"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="Kwy-o8-KQj"/>
+                                <include reference="T6S-cu-4ca"/>
+                                <include reference="1yL-UH-61C"/>
+                                <exclude reference="2U8-JR-O7R"/>
+                                <include reference="Pqb-1L-tQy"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact-widthClass=regular">
@@ -93,7 +124,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136" y="54"/>
+            <point key="canvasLocation" x="135.38230884557723" y="53.600000000000001"/>
         </scene>
     </scenes>
     <resources>

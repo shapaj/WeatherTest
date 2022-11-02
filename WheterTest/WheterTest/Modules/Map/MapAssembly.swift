@@ -6,10 +6,21 @@
 //
 
 import Foundation
-import UIKit
+import Swinject
 
 struct MapAssembly {
-    static func CreateModule() -> UIViewController {
-        return UIViewController()
+    static func CreateModule(container: Container, handler: @escaping (Coordinates) -> Void) -> UIViewController {
+        
+        guard let viewController = MapView.createVC() as? MapView else {
+            fatalError(" map view has nor been created")
+        }
+        
+        viewController.handler = handler
+        
+        let presenter: MapPresenterProtocol = MapPresenter(view: viewController, container: container)
+        
+        viewController.presenter = presenter
+        
+        return viewController
     }
 }
