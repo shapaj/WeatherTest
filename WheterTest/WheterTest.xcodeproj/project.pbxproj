@@ -23,6 +23,10 @@
 		2A2543052912A838006DA27B /* MapViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2543042912A838006DA27B /* MapViewProtocol.swift */; };
 		2A2543072912B254006DA27B /* MapView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A2543062912B254006DA27B /* MapView.storyboard */; };
 		2A2543092912C8C1006DA27B /* MapPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2543082912C8C1006DA27B /* MapPoint.swift */; };
+		2A25430C2912E162006DA27B /* SearchAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A25430B2912E162006DA27B /* SearchAssembly.swift */; };
+		2A25430E2912E17E006DA27B /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A25430D2912E17E006DA27B /* SearchPresenter.swift */; };
+		2A2543102912E1A6006DA27B /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A25430F2912E1A5006DA27B /* SearchView.swift */; };
+		2A2543122912E1C0006DA27B /* SearchView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A2543112912E1C0006DA27B /* SearchView.storyboard */; };
 		2A592A3C290C79D70069B333 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A592A3B290C79D70069B333 /* Colors.xcassets */; };
 		2A592A41290C7CCF0069B333 /* HomeAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A592A40290C7CCF0069B333 /* HomeAssembly.swift */; };
 		2A592A43290C7CE80069B333 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A592A42290C7CE80069B333 /* HomePresenter.swift */; };
@@ -76,6 +80,10 @@
 		2A2543042912A838006DA27B /* MapViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewProtocol.swift; sourceTree = "<group>"; };
 		2A2543062912B254006DA27B /* MapView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MapView.storyboard; sourceTree = "<group>"; };
 		2A2543082912C8C1006DA27B /* MapPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPoint.swift; sourceTree = "<group>"; };
+		2A25430B2912E162006DA27B /* SearchAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAssembly.swift; sourceTree = "<group>"; };
+		2A25430D2912E17E006DA27B /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
+		2A25430F2912E1A5006DA27B /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		2A2543112912E1C0006DA27B /* SearchView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchView.storyboard; sourceTree = "<group>"; };
 		2A592A3B290C79D70069B333 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		2A592A40290C7CCF0069B333 /* HomeAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAssembly.swift; sourceTree = "<group>"; };
 		2A592A42290C7CE80069B333 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
@@ -178,6 +186,17 @@
 			path = Map;
 			sourceTree = "<group>";
 		};
+		2A25430A2912E12C006DA27B /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				2A25430B2912E162006DA27B /* SearchAssembly.swift */,
+				2A25430D2912E17E006DA27B /* SearchPresenter.swift */,
+				2A25430F2912E1A5006DA27B /* SearchView.swift */,
+				2A2543112912E1C0006DA27B /* SearchView.storyboard */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
 		2A592A3A290C78F70069B333 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
@@ -195,6 +214,7 @@
 		2A592A3D290C7B740069B333 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				2A25430A2912E12C006DA27B /* Search */,
 				2A2542F9291275CA006DA27B /* Map */,
 				2A592A3F290C7CB80069B333 /* Home */,
 			);
@@ -394,6 +414,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A592A47290C7DDB0069B333 /* HomeView.storyboard in Resources */,
+				2A2543122912E1C0006DA27B /* SearchView.storyboard in Resources */,
 				2A592A3C290C79D70069B333 /* Colors.xcassets in Resources */,
 				2A1B8ADD290C60730059C3D5 /* LaunchScreen.storyboard in Resources */,
 				2A9AA6DF290EFB1800898AFE /* PartOfDay.xib in Resources */,
@@ -492,6 +513,7 @@
 				2A9AA6C8290D848A00898AFE /* UIView+Extensions.swift in Sources */,
 				2A2542E729118733006DA27B /* Date+Extension.swift in Sources */,
 				2A592A49290C7DFE0069B333 /* HomePresenterProtocol.swift in Sources */,
+				2A2543102912E1A6006DA27B /* SearchView.swift in Sources */,
 				2A592A4B290C7E290069B333 /* HomeViewProtocol.swift in Sources */,
 				2A9AA6DD290EFAC700898AFE /* PartOfDay.swift in Sources */,
 				2A9AA6E3291015FB00898AFE /* DependancyAssemblay.swift in Sources */,
@@ -499,6 +521,7 @@
 				2A592A58290C86170069B333 /* UIViewController+Extensions.swift in Sources */,
 				2A2542FF2912A78A006DA27B /* MapPresenter.swift in Sources */,
 				2A2543092912C8C1006DA27B /* MapPoint.swift in Sources */,
+				2A25430C2912E162006DA27B /* SearchAssembly.swift in Sources */,
 				2A9AA6CD290D894100898AFE /* CurrentWeatherModel.swift in Sources */,
 				2A9AA6D1290DBB1C00898AFE /* NetworkManager.swift in Sources */,
 				2A592A53290C7F7D0069B333 /* BaseViewController.swift in Sources */,
@@ -506,6 +529,7 @@
 				2A592A50290C7F540069B333 /* DayViewCell.swift in Sources */,
 				2A1B8AD3290C60690059C3D5 /* SceneDelegate.swift in Sources */,
 				2A592A55290C80F30069B333 /* LifeCycleProtocol.swift in Sources */,
+				2A25430E2912E17E006DA27B /* SearchPresenter.swift in Sources */,
 				2A9AA6E72910179A00898AFE /* LocationManager.swift in Sources */,
 				2A9AA6CF290D9D0600898AFE /* DefaultValues.swift in Sources */,
 				2A592A43290C7CE80069B333 /* HomePresenter.swift in Sources */,

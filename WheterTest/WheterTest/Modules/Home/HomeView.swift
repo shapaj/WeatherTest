@@ -27,6 +27,11 @@ final class HomeView: BaseViewController, HomeViewProtocol, UITableViewDelegate,
     private func setupViewController() {
         daylyInfoView.delegate = presenter
         setupTableView()
+        setupSearchView()
+    }
+    
+    private func setupSearchView() {
+        let searchView = UISearchController()
     }
     
     private func setupTableView() {
@@ -55,6 +60,15 @@ final class HomeView: BaseViewController, HomeViewProtocol, UITableViewDelegate,
     func presentMap(container: Container, handler: @escaping (Coordinates) -> Void) {
         
         let navigationController = UINavigationController(rootViewController: MapAssembly.CreateModule(container: container, handler: handler))
+        DispatchQueue.main.async { [weak self] in
+            self?.present(navigationController, animated: true)
+        }
+    }
+    
+    func presentSearch(container: Container, handler: @escaping (Coordinates) -> Void) {
+        
+        let navigationController = UINavigationController(rootViewController: SearchAssembly.CreateModule(container: container, handler: handler))
+        navigationController.modalPresentationStyle = .fullScreen
         DispatchQueue.main.async { [weak self] in
             self?.present(navigationController, animated: true)
         }

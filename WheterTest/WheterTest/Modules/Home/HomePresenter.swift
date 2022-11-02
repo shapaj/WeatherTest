@@ -142,12 +142,6 @@ final class HomePresenter: HomePresenterProtocol {
     
     // MARK: dayly view delegate
     
-    func tapToPickLocation() {
-        print(1)
-        // TODO ShowLocationPiker
-        // is not correct updateLocation()
-    }
-    
     func updateWithLocation(_ location: Coordinates?) {
         guard let location = location else {
             updateLocation()
@@ -156,6 +150,13 @@ final class HomePresenter: HomePresenterProtocol {
         
         updateCityInfo(coordinates: location)
         updateWeather(location)
+    }
+    
+    func tapToPickLocation() {
+        view?.presentSearch(container: container) { [weak self] location in
+            self?.updateCityInfo(coordinates: location)
+            self?.updateWeather(location)
+        }
     }
     
     func tapToPickLocationOnMap () {

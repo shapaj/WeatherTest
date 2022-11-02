@@ -14,4 +14,5 @@ protocol HomeViewProtocol: UIViewController, ViewUpdateble, HomeViewRouterProtoc
 
 protocol HomeViewRouterProtocol {
     func presentMap(container: Container, handler: @escaping (Coordinates) -> Void)
+    func presentSearch(container: Container, handler: @escaping (Coordinates) -> Void)
 }
