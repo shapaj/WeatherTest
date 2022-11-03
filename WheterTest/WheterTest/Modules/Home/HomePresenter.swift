@@ -35,13 +35,14 @@ final class HomePresenter: HomePresenterProtocol {
     // MARK: private methods
     
     private func updateLocation() {
-        locationService?.getCurrentLocation { [view] result in
+        locationService?.getCurrentLocation { [weak self] result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let coordinates):
-                    view?.updateViewInterface(coordinates)
+                    self?.view?.updateViewInterface(coordinates)
+                    self?.updateWithLocation(coordinates)
                 case .failure(let alert):
-                    view?.present(alert, animated: true)
+                    self?.view?.present(alert, animated: true)
                 }
             }
         }
